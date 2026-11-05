@@ -1,0 +1,241 @@
+{
+ "release_cutoff": "initial release date >= 2023-07-01",
+ "selection_notes": "Candidates: RCSB search (query below) -> 5156 entries; seeded random sample (seed 0, n=300) -> metadata via data.rcsb.org GraphQL + mmCIF via files.rcsb.org; post-filters on the mmCIF (gemmi): protein, no nonstandard residues, 60-300 modeled residues, >90% of SEQRES modeled, CA present for all modeled residues, no X/U in sequence (231/300 pass). Final 10 chosen by hand from the passing pool for fold/size diversity. Release cutoff 2023-07-01: the Boltz-2 repo docs (README/docs) state no training cutoff; the paper's cutoff (2023-06-01, from memory) is earlier, so 2023-07-01 is the later of the two.",
+ "query_endpoint": "https://search.rcsb.org/rcsbsearch/v2/query",
+ "query": {
+  "query": {
+   "type": "group",
+   "logical_operator": "and",
+   "nodes": [
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_accession_info.initial_release_date",
+      "operator": "greater_or_equal",
+      "value": "2023-07-01T00:00:00Z"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "exptl.method",
+      "operator": "exact_match",
+      "value": "X-RAY DIFFRACTION"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.resolution_combined",
+      "operator": "less_or_equal",
+      "value": 2.5
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count_protein",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+      "operator": "range",
+      "value": {
+       "from": 60,
+       "to": 300,
+       "include_lower": true,
+       "include_upper": true
+      }
+     }
+    }
+   ]
+  },
+  "return_type": "entry",
+  "request_options": {
+   "paginate": {
+    "start": 0,
+    "rows": 10000
+   },
+   "sort": [
+    {
+     "sort_by": "rcsb_accession_info.initial_release_date",
+     "direction": "asc"
+    }
+   ]
+  }
+ },
+ "sample": {
+  "seed": 0,
+  "n": 300,
+  "script": "tools/validation/filter_cases.py"
+ },
+ "cases": [
+  {
+   "id": "8j9r",
+   "pdb_id": "8J9R",
+   "chain": "A",
+   "release_date": "2023-12-06",
+   "resolution": 1.65,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 74,
+   "length_modeled": 72,
+   "frac_modeled": 0.973,
+   "description": "E3 ubiquitin-protein ligase UBR4",
+   "cif": "data/validation/cif/8j9r.cif",
+   "yaml": "validation/yaml/8j9r.yaml"
+  },
+  {
+   "id": "8fj8",
+   "pdb_id": "8FJ8",
+   "chain": "A",
+   "release_date": "2024-02-07",
+   "resolution": 2.17,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 90,
+   "length_modeled": 90,
+   "frac_modeled": 1.0,
+   "description": "Protein S100-B",
+   "cif": "data/validation/cif/8fj8.cif",
+   "yaml": "validation/yaml/8fj8.yaml"
+  },
+  {
+   "id": "8oxk",
+   "pdb_id": "8OXK",
+   "chain": "A",
+   "release_date": "2023-08-16",
+   "resolution": 1.37,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 99,
+   "length_modeled": 94,
+   "frac_modeled": 0.949,
+   "description": "CSEP0141 putative effector protein",
+   "cif": "data/validation/cif/8oxk.cif",
+   "yaml": "validation/yaml/8oxk.yaml"
+  },
+  {
+   "id": "8ti5",
+   "pdb_id": "8TI5",
+   "chain": "A",
+   "release_date": "2024-05-08",
+   "resolution": 1.15,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 134,
+   "length_modeled": 131,
+   "frac_modeled": 0.978,
+   "description": "Profilin",
+   "cif": "data/validation/cif/8ti5.cif",
+   "yaml": "validation/yaml/8ti5.yaml"
+  },
+  {
+   "id": "8t98",
+   "pdb_id": "8T98",
+   "chain": "A",
+   "release_date": "2023-11-15",
+   "resolution": 1.3,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 148,
+   "length_modeled": 135,
+   "frac_modeled": 0.912,
+   "description": "Diphosphoinositol polyphosphate phosphohydrolase 1",
+   "cif": "data/validation/cif/8t98.cif",
+   "yaml": "validation/yaml/8t98.yaml"
+  },
+  {
+   "id": "8ta1",
+   "pdb_id": "8TA1",
+   "chain": "A",
+   "release_date": "2024-08-28",
+   "resolution": 1.5,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 173,
+   "length_modeled": 163,
+   "frac_modeled": 0.942,
+   "description": "Dihydrofolate reductase",
+   "cif": "data/validation/cif/8ta1.cif",
+   "yaml": "validation/yaml/8ta1.yaml"
+  },
+  {
+   "id": "8jqu",
+   "pdb_id": "8JQU",
+   "chain": "A",
+   "release_date": "2024-06-19",
+   "resolution": 1.798,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 175,
+   "length_modeled": 164,
+   "frac_modeled": 0.937,
+   "description": "Rab5a",
+   "cif": "data/validation/cif/8jqu.cif",
+   "yaml": "validation/yaml/8jqu.yaml"
+  },
+  {
+   "id": "8tsz",
+   "pdb_id": "8TSZ",
+   "chain": "A",
+   "release_date": "2023-09-20",
+   "resolution": 1.1,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 231,
+   "length_modeled": 226,
+   "frac_modeled": 0.978,
+   "description": "Isonitrile hydratase InhA",
+   "cif": "data/validation/cif/8tsz.cif",
+   "yaml": "validation/yaml/8tsz.yaml"
+  },
+  {
+   "id": "8c0m",
+   "pdb_id": "8C0M",
+   "chain": "A",
+   "release_date": "2023-12-27",
+   "resolution": 1.2,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 234,
+   "length_modeled": 228,
+   "frac_modeled": 0.974,
+   "description": "Alginate lyase",
+   "cif": "data/validation/cif/8c0m.cif",
+   "yaml": "validation/yaml/8c0m.yaml"
+  },
+  {
+   "id": "8ywo",
+   "pdb_id": "8YWO",
+   "chain": "A",
+   "release_date": "2024-05-08",
+   "resolution": 1.58,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 240,
+   "length_modeled": 240,
+   "frac_modeled": 1.0,
+   "description": "(S)-2-haloacid dehalogenase",
+   "cif": "data/validation/cif/8ywo.cif",
+   "yaml": "validation/yaml/8ywo.yaml"
+  }
+ ]
+}

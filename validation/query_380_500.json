@@ -1,0 +1,89 @@
+{
+ "query": {
+  "type": "group",
+  "logical_operator": "and",
+  "nodes": [
+   {
+    "type": "terminal",
+    "service": "text",
+    "parameters": {
+     "attribute": "rcsb_accession_info.initial_release_date",
+     "operator": "greater_or_equal",
+     "value": "2023-07-01T00:00:00Z"
+    }
+   },
+   {
+    "type": "terminal",
+    "service": "text",
+    "parameters": {
+     "attribute": "exptl.method",
+     "operator": "exact_match",
+     "value": "X-RAY DIFFRACTION"
+    }
+   },
+   {
+    "type": "terminal",
+    "service": "text",
+    "parameters": {
+     "attribute": "rcsb_entry_info.resolution_combined",
+     "operator": "less_or_equal",
+     "value": 2.5
+    }
+   },
+   {
+    "type": "terminal",
+    "service": "text",
+    "parameters": {
+     "attribute": "rcsb_entry_info.polymer_entity_count",
+     "operator": "equals",
+     "value": 1
+    }
+   },
+   {
+    "type": "terminal",
+    "service": "text",
+    "parameters": {
+     "attribute": "rcsb_entry_info.polymer_entity_count_protein",
+     "operator": "equals",
+     "value": 1
+    }
+   },
+   {
+    "type": "terminal",
+    "service": "text",
+    "parameters": {
+     "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+     "operator": "equals",
+     "value": 1
+    }
+   },
+   {
+    "type": "terminal",
+    "service": "text",
+    "parameters": {
+     "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+     "operator": "range",
+     "value": {
+      "from": 380,
+      "to": 500,
+      "include_lower": true,
+      "include_upper": true
+     }
+    }
+   }
+  ]
+ },
+ "return_type": "entry",
+ "request_options": {
+  "paginate": {
+   "start": 0,
+   "rows": 10000
+  },
+  "sort": [
+   {
+    "sort_by": "rcsb_accession_info.initial_release_date",
+    "direction": "asc"
+   }
+  ]
+ }
+}

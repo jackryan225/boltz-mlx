@@ -1,0 +1,23 @@
+boltz-mlx credits
+
+boltz-mlx is released under the MIT licence (see LICENSE). It contains or builds on the following work.
+
+Boltz-2 (Wohlwend, Corso, Passaro et al.; https://github.com/jwohlwend/boltz, MIT, Copyright (c) 2024 Jeremy Wohlwend,
+Gabriele Corso, Saro Passaro) is the model and the upstream pipeline boltz-mlx runs on. The model architecture, its
+weights and its training are the work of the Boltz authors; boltz-mlx ports and tunes inference only. The weights are
+not redistributed here: `boltz-mlx setup` downloads the official Boltz-2 checkpoints and converts them locally.
+cases/msa/seq1.a3m and seq2.a3m are copies of upstream boltz examples/msa (MIT).
+
+boltz_mlx/upfix/ patches known bugs of stock boltz 2.2.1 from boltz-mlx code (boltz is never edited). The ideas and the
+RDKit / writer fixes follow commits of the boltz-community fork of Boltz (https://github.com/boltz-community/boltz, MIT,
+Copyright (c) Wohlwend, Corso, Passaro): 9cca9d6 (atom names over 4 characters, upstream #494; element in PDB / mmCIF
+output, upstream #458), b555625 (valence check before AddHs, upstream #649), 7407b86 (standardize() of salt-form ligands),
+321d13f (multi-character chain ids in PDB output), 8450e66 (ring-closing bond of cyclic chains), 772a2a6 (ligand bond
+order in PDB CONECT records). The code is written against stock boltz 2.2.1 data types; each module names its commits.
+
+Mol* 4.5.0 (https://molstar.org, MIT, Copyright (c) 2017 - now, Mol* contributors) is bundled unmodified in
+boltz_mlx/gui/static/vendor/molstar/ (licence file alongside).
+
+The experimental structures in docs/viewer/structures/*_exp.cif and the .cif / .fasta files in tools/macbench/ref/ are
+entries of the RCSB Protein Data Bank (https://www.rcsb.org), whose data files are released under CC0 1.0. The two
+ntca_workshop_*.fasta.txt files are the input sequences of the ChimeraX PNCC Boltz workshop (NTCA from PDB 9GQU and its DNA).

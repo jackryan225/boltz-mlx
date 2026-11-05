@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pose viewer</title>
+<link rel="stylesheet" href="/static/vendor/molstar/molstar.css">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: transparent; }
+  #app { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
+  /* Dark mode (the page sends {cmd: "dark"}): the bundled molstar.css is Mol*'s light skin, whose viewport buttons are dark brown
+     icons on a half-transparent light square: on the dark canvas that reads as faint icons on grey. Give them a dark square and
+     light icons instead: WCAG contrast 14.1:1 for an active button and 6.8:1 for a toggled-off one, from 3.3:1 and 1.2:1. The
+     settings panel keeps the light skin: it is opaque and readable on its own. */
+  /* Light mode: same geometry as dark, an opaque neutral square with ink icons (the stock translucent brown reads as noise over a pose). */
+  html:not(.dark) .msp-plugin .msp-viewport-controls-buttons .msp-semi-transparent-background { background: #f4f4f6; opacity: .96; }
+  html:not(.dark) .msp-plugin .msp-viewport-controls-buttons .msp-btn-link,
+  html:not(.dark) .msp-plugin .msp-viewport-controls-buttons .msp-btn-link:active,
+  html:not(.dark) .msp-plugin .msp-viewport-controls-buttons .msp-btn-link:focus,
+  html:not(.dark) .msp-plugin .msp-viewport-controls-buttons .msp-btn-link-toggle-on { color: #1c1c20 !important; }
+  html:not(.dark) .msp-plugin .msp-viewport-controls-buttons .msp-btn-link-toggle-off,
+  html:not(.dark) .msp-plugin .msp-viewport-controls-buttons .msp-btn-link-toggle-off:active,
+  html:not(.dark) .msp-plugin .msp-viewport-controls-buttons .msp-btn-link-toggle-off:focus { color: #5f5f68 !important; }
+  html:not(.dark) .msp-plugin .msp-viewport-controls-buttons .msp-btn-link:hover { color: #b45309 !important; }
+  html.dark .msp-plugin .msp-viewport-controls-buttons .msp-semi-transparent-background { background: #1f1f23; opacity: .9; }
+  html.dark .msp-plugin .msp-viewport-controls-buttons .msp-btn-link,
+  html.dark .msp-plugin .msp-viewport-controls-buttons .msp-btn-link:active,
+  html.dark .msp-plugin .msp-viewport-controls-buttons .msp-btn-link:focus,
+  html.dark .msp-plugin .msp-viewport-controls-buttons .msp-btn-link-toggle-on { color: #ecebe8 !important; }
+  html.dark .msp-plugin .msp-viewport-controls-buttons .msp-btn-link-toggle-off,
+  html.dark .msp-plugin .msp-viewport-controls-buttons .msp-btn-link-toggle-off:active,
+  html.dark .msp-plugin .msp-viewport-controls-buttons .msp-btn-link-toggle-off:focus { color: #a9a49b !important; }
+  html.dark .msp-plugin .msp-viewport-controls-buttons .msp-btn-link:hover { color: #f2a33a !important; }
+</style>
+</head>
+<body>
+<!-- The pose viewer runs in this frame because the bundled Mol* build evaluates generated code (Emscripten glue), which the strict
+     policy of the main page forbids. The frame is served from the other loopback host name (localhost vs 127.0.0.1), so it is a
+     different origin: it cannot read the main page or the API token, and only receives poses by postMessage (viewer-frame.js). -->
+<div id="app"></div>
+<script src="/static/vendor/molstar/molstar.js"></script>
+<script src="/static/js/viewer-frame.js"></script>
+</body>
+</html>

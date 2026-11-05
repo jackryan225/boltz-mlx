@@ -1,0 +1,12 @@
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: MEKTHVQLSLPVLQVRDVLVRGFGDSVEEVLSEARQHLKDGTCGLVEVEKGVLPQLEQPYVFIKRSDARTAPHGHVMVELVAELEGIQYGRSGETLGVLVPHVGEIPVAYRKVLLRKN
+      msa: macbench-env/msa/8rf4_0.csv
+  - ligand:
+      id: B
+      ccd: EQT
+properties:
+  - affinity:
+      binder: B

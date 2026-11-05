@@ -1,0 +1,37 @@
+{
+ "_about": "bench-r2 expectations, written and committed BEFORE any bench-r2 data (2026-10-30 00:30Z). Values are for boltz_mlx tree 97d7b4a (m5max d05ebe4, checkpoint 2 build) on the Apple M5 Max, AC power, after >= 300 s GPU idle. MEASURED = an earlier row on this machine and tree family (source given); ESTIMATE = derived (rule given). Information only: no pass/fail gate. If the jobs run on another tree (e.g. the v4 tuning tree 477540f), these are still the 97d7b4a values; the v4 ABBA deltas were not known when this was written.",
+ "speed": {
+  "_settings": "tools/bench_mlx.py CASE --mode f16 --steps N --runs 5 [--affinity]; median of runs 2..5; mem limit 18 GB (default)",
+  "prot117_s50": {"s": 0.49, "label": "MEASURED", "source": "boltz-ckpt2-speed-20261029b (m5max-ckpt2b) 0.488 s, tree 97d7b4a"},
+  "prot400_s50": {"s": 3.2, "label": "MEASURED", "source": "m5max-ckpt2b 3.181 s (trunk 2.583, diffusion 0.502, confidence 0.086)"},
+  "lig_aff_aff200": {"s": 3.9, "label": "MEASURED", "source": "m5max-ckpt2b 3.897 s (3 runs)"},
+  "lig_aff_aff25": {"s": 1.66, "label": "MEASURED", "source": "m5max-ckpt2b 1.659 s (3 runs)"},
+  "prot400_s200": {"s": 4.7, "range": [4.4, 5.2], "label": "ESTIMATE", "source": "ckpt2b prot400 @50 phases: trunk 2.58 + 4 x diffusion 0.50 + confidence 0.09 s"},
+  "msa384_s50": {"s": 3.8, "range": [3.4, 4.2], "label": "ESTIMATE", "source": "M5 Pro rows 7.18-7.39 s (logs/bench_mlx.jsonl 2026-10-28, d6fd197 / 2319434) / ~1.9 (M5 Pro / M5 Max ratio of the ckpt2b set, 1.73-1.96)"},
+  "lig_aff_s50": {"s": 3.5, "range": [3.2, 3.8], "label": "ESTIMATE", "source": "structure pass only (feats.npz, 3 recycles, 1 sample); T400 screen per-ligand structure medians at 50 steps 3.47-3.69 s (same receptor + seq1.a3m, 406-421 tokens; m5max-ckpt2b 3.69)"}
+ },
+ "t400m": {
+  "_settings": "boltz_mlx.cli screen on cases/lig_aff.yaml + seq1.a3m, t400_ligands.csv, --dry-run --measure 5 (first 5 ligands, bace_cat-13a..13e), cold process, fresh out dir; s/ligand incl. one load of each checkpoint",
+  "preset_20_25": {"s_per_ligand": 5.4, "label": "MEASURED", "source": "boltz-val-t400-stageBC-20261029a: 5.38-5.39 s/ligand at f16 + 20 + 25 (now the screen preset)"},
+  "old_50_200": {"s_per_ligand": 8.4, "range": [7.7, 8.7], "label": "MEASURED", "source": "m5max-ckpt2b 8.39 s/ligand (tree 97d7b4a); earlier 7.7-8.2 on other trees"},
+  "strict_200_200": {"s_per_ligand": 31, "range": [25, 45], "label": "ESTIMATE", "source": "strict preset M5 Pro estimate inputs (boltz_mlx/screen/presets.py: structure 30.28 s at 400 tokens + affinity 28.06 s = 58.3 s/ligand) / ~1.9; no strict T400 --measure on the M5 Max known. Upper end: class 2 strict FEP screens (BACE1, 36 ligands, strict 200 + 200) took 57-61 s/ligand while sharing the GPU (not timings); peak footprint 11.42-11.45 GB MEASURED there"}
+ },
+ "t400cold": {
+  "_settings": "one full cold screen of the 199 T400 ligands, --preset screen (f16 + 20 + 25), --seed 0, fresh out dir, under /usr/bin/time -l",
+  "s_per_ligand": 6.9, "range": [6.3, 7.3], "wall_min": 23, "peak_footprint_gb": 10.5, "label": "MEASURED",
+  "source": "rung 5 G1 (boltz-val-g1-t400-20261029a, tree 35b4ba8): 4 cold passes 6.32-7.21 s/ligand, pooled 6.835; G3 peak footprint 10.02-10.46 GB"
+ },
+ "o6": {
+  "_settings": "tools/bench_mlx.py CASE --mode f16 --steps 50 --runs R --mem-limit-gb 100 --cache-limit-gb 4 (3 recycles, 1 sample); R = 3 to 1000 tokens, 2 at 1600/2400, 1 at 3200",
+  "_rule": "time: trunk (2.58 s at 400 tokens) scaled N^2.5 (low) to N^3 (high) + diffusion N^2 from 0.50 s; MLX peak: activations (peak - weights) from the strict prot800/prot1000 rows (11.1 / 12.3 GB, bench rows) taken as an upper bound for f16, then N^2 from 1000 tokens. All ESTIMATE except 117 / 400 (MEASURED ckpt2b).",
+  "sizes": {
+   "117": {"run_s": "0.49", "mlx_peak_gb": "2.8", "label": "MEASURED (ckpt2b prot117 @50)"},
+   "400": {"run_s": "3.2", "mlx_peak_gb": "4.0", "label": "MEASURED (ckpt2b prot400 @50)"},
+   "800": {"run_s": "16-23", "mlx_peak_gb": "6-11", "label": "ESTIMATE"},
+   "1000": {"run_s": "28-43", "mlx_peak_gb": "7-12", "label": "ESTIMATE"},
+   "1600": {"run_s": "90-175", "mlx_peak_gb": "15-27", "label": "ESTIMATE"},
+   "2400": {"run_s": "245-575", "mlx_peak_gb": "35-58", "label": "ESTIMATE"},
+   "3200": {"run_s": "490-1350", "mlx_peak_gb": "60-102", "label": "ESTIMATE (may exceed the 100 GB budget: the projection guard decides)"}
+  }
+ }
+}

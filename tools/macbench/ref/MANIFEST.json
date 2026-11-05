@@ -1,0 +1,19 @@
+{
+ "retrieved": "2026-10-31",
+ "source": "https://files.rcsb.org/download/<ID>.cif and https://www.rcsb.org/fasta/entry/<ID> (RCSB PDB, public entries)",
+ "files": {
+  "8RF4.cif": "3434d1a04390afadf6fa528cbd60af5b10613fb8482c62d15344d1903ebfa41f",
+  "8RF4.fasta": "db1308ce946ca199af122d86d1a43972dd38b1af423d82ba34ed5782814302e6",
+  "9B3H.cif": "6f1692e9fd9efac92302850f39b09704b98703f3310891318eeea0b5c8d0ef95",
+  "9B3H.fasta": "f7dd456529bf488a0f7d20c5fc87b1dfa3a171724360e411ba7883e9abb2d497",
+  "9GQU.cif": "b6f67ccf2d332c961d8e6bed2a53c6f11cf08b13424fa3084bfd07e60b27ddc7",
+  "9GQU.fasta": "616035912bed4008ecba328408243842707b1920e5d4d466cd66e357762c8f75",
+  "9GUI.cif": "1f7339e4d8b5f921a1ec2b72dfcc274c3e732fd4cd0a014d0800ed9cbf7fa393",
+  "9GUI.fasta": "cef52c43b38e983f346feee14b0c00e86a4f81feaa528aeadaa9820f9cad9980",
+  "9MOJ.cif": "2680d59e77af984b57dde3de841cac70e814cfe4d9ef66e23446a128c244d6e8",
+  "9MOJ.fasta": "ec0c5427d43f04ec8f63754be912e77b8332c0b8afa0d4e378ac3f42bddb1896",
+  "ntca_workshop_sequence.fasta.txt": "616035912bed4008ecba328408243842707b1920e5d4d466cd66e357762c8f75",
+  "ntca_workshop_dna.fasta.txt": "9e702147f00d5fe791ac521db19895e8e04505753df0d9837a449f4d4f6973ba"
+ },
+ "workshop_files_source": "https://www.rbvi.ucsf.edu/chimerax/data/pncc-workshop-sep2025/data/ntca_sequence.fasta.txt and dna_duplex.fasta.txt"
+}

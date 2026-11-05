@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <symbol id="mark" viewBox="0 0 32 32">
+      <rect width="32" height="32" rx="10" fill="#8fb2d9"/>
+      <g fill="none" stroke="#0a1428" stroke-width="2" stroke-linecap="round">
+        <path d="M10 6.5c0 6 12 7 12 13s-12 7-12 6"/>
+        <path d="M22 6.5c0 6-12 7-12 13" opacity=".55"/>
+        <path d="M12.3 10.6h7.4M12.3 21.4h7.4" stroke-width="1.6"/>
+      </g>
+    </symbol>
+  </defs>
+  <use href="#mark"/>
+</svg>

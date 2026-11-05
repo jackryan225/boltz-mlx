@@ -1,0 +1,223 @@
+{
+ "name": "mlx_gpu_replay",
+ "command": "boltz-mlx predict {yaml} --out_dir {out_dir} --override --replay_noise data/{id}/ref/noise.npz",
+ "summary": {
+  "n_cases": 10,
+  "n_ok": 10,
+  "mean_lddt_ca": 0.6293023519800962,
+  "mean_tm_score": 0.645851374074421,
+  "mean_rmsd_ca": 6.795389228107974
+ },
+ "cases": [
+  {
+   "id": "8j9r",
+   "length_seqres": 74,
+   "length_modeled": 72,
+   "command": "boltz-mlx predict validation/yaml/8j9r.yaml --out_dir data/validation/runs/mlx_gpu_replay/8j9r --override --replay_noise data/8j9r/ref/noise.npz",
+   "wall_s": 7.86,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8j9r/boltz_results_8j9r/predictions/8j9r/8j9r_model_0.cif",
+   "lddt_ca": 0.2923092318973872,
+   "tm_score": 0.20158865085970454,
+   "rmsd_ca": 12.84759714333082,
+   "rmsd_ca_tm_superposition": 13.495139351219514,
+   "n_ref_modeled": 72,
+   "n_scored": 72,
+   "n_seqres": 74,
+   "delta_vs_ref": {
+    "lddt_ca": 0.000700078817440497,
+    "tm_score": 0.020318193001155255,
+    "rmsd_ca": 0.0845061743760791
+   }
+  },
+  {
+   "id": "8fj8",
+   "length_seqres": 90,
+   "length_modeled": 90,
+   "command": "boltz-mlx predict validation/yaml/8fj8.yaml --out_dir data/validation/runs/mlx_gpu_replay/8fj8 --override --replay_noise data/8fj8/ref/noise.npz",
+   "wall_s": 7.55,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8fj8/boltz_results_8fj8/predictions/8fj8/8fj8_model_0.cif",
+   "lddt_ca": 0.9203179157172291,
+   "tm_score": 0.8407135741697067,
+   "rmsd_ca": 2.8000555670828207,
+   "rmsd_ca_tm_superposition": 2.8178008362604823,
+   "n_ref_modeled": 90,
+   "n_scored": 90,
+   "n_seqres": 90,
+   "delta_vs_ref": {
+    "lddt_ca": -0.0001636334610473078,
+    "tm_score": -0.0001019526309927743,
+    "rmsd_ca": 0.0003904801931060575
+   }
+  },
+  {
+   "id": "8oxk",
+   "length_seqres": 99,
+   "length_modeled": 94,
+   "command": "boltz-mlx predict validation/yaml/8oxk.yaml --out_dir data/validation/runs/mlx_gpu_replay/8oxk --override --replay_noise data/8oxk/ref/noise.npz",
+   "wall_s": 8.04,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8oxk/boltz_results_8oxk/predictions/8oxk/8oxk_model_0.cif",
+   "lddt_ca": 0.5032483032576793,
+   "tm_score": 0.4271375879802393,
+   "rmsd_ca": 7.784284927814035,
+   "rmsd_ca_tm_superposition": 8.03473493920245,
+   "n_ref_modeled": 94,
+   "n_scored": 94,
+   "n_seqres": 99,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0003333951590090978,
+    "tm_score": 0.0003465315171664596,
+    "rmsd_ca": 0.0003667593569227634
+   }
+  },
+  {
+   "id": "8ti5",
+   "length_seqres": 134,
+   "length_modeled": 131,
+   "command": "boltz-mlx predict validation/yaml/8ti5.yaml --out_dir data/validation/runs/mlx_gpu_replay/8ti5 --override --replay_noise data/8ti5/ref/noise.npz",
+   "wall_s": 10.6,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8ti5/boltz_results_8ti5/predictions/8ti5/8ti5_model_0.cif",
+   "lddt_ca": 0.42435766381433804,
+   "tm_score": 0.4285737596435865,
+   "rmsd_ca": 12.409925492771706,
+   "rmsd_ca_tm_superposition": 12.53203996342001,
+   "n_ref_modeled": 131,
+   "n_scored": 131,
+   "n_seqres": 134,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0491855119269361,
+    "tm_score": 0.15107776471627626,
+    "rmsd_ca": -2.655123385559156
+   }
+  },
+  {
+   "id": "8t98",
+   "length_seqres": 148,
+   "length_modeled": 135,
+   "command": "boltz-mlx predict validation/yaml/8t98.yaml --out_dir data/validation/runs/mlx_gpu_replay/8t98 --override --replay_noise data/8t98/ref/noise.npz",
+   "wall_s": 11.26,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8t98/boltz_results_8t98/predictions/8t98/8t98_model_0.cif",
+   "lddt_ca": 0.45837459763457644,
+   "tm_score": 0.533917777165873,
+   "rmsd_ca": 8.003858664891078,
+   "rmsd_ca_tm_superposition": 8.286578238489431,
+   "n_ref_modeled": 135,
+   "n_scored": 135,
+   "n_seqres": 148,
+   "delta_vs_ref": {
+    "lddt_ca": -0.0023420369165294552,
+    "tm_score": -0.002244071393586733,
+    "rmsd_ca": 0.020134546129073172
+   }
+  },
+  {
+   "id": "8ta1",
+   "length_seqres": 173,
+   "length_modeled": 163,
+   "command": "boltz-mlx predict validation/yaml/8ta1.yaml --out_dir data/validation/runs/mlx_gpu_replay/8ta1 --override --replay_noise data/8ta1/ref/noise.npz",
+   "wall_s": 12.66,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8ta1/boltz_results_8ta1/predictions/8ta1/8ta1_model_0.cif",
+   "lddt_ca": 0.9068687477582246,
+   "tm_score": 0.9264488023173681,
+   "rmsd_ca": 1.5778147595671475,
+   "rmsd_ca_tm_superposition": 1.591602773044996,
+   "n_ref_modeled": 163,
+   "n_scored": 163,
+   "n_seqres": 173,
+   "delta_vs_ref": {
+    "lddt_ca": 0.014174727932477427,
+    "tm_score": 0.011690838248202162,
+    "rmsd_ca": -0.04733068446054256
+   }
+  },
+  {
+   "id": "8jqu",
+   "length_seqres": 175,
+   "length_modeled": 164,
+   "command": "boltz-mlx predict validation/yaml/8jqu.yaml --out_dir data/validation/runs/mlx_gpu_replay/8jqu --override --replay_noise data/8jqu/ref/noise.npz",
+   "wall_s": 12.9,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8jqu/boltz_results_8jqu/predictions/8jqu/8jqu_model_0.cif",
+   "lddt_ca": 0.8365163585356729,
+   "tm_score": 0.9160872893837306,
+   "rmsd_ca": 2.1401799018312113,
+   "rmsd_ca_tm_superposition": 2.2421178187006996,
+   "n_ref_modeled": 164,
+   "n_scored": 164,
+   "n_seqres": 175,
+   "delta_vs_ref": {
+    "lddt_ca": 0.005032567476319638,
+    "tm_score": 0.0018322703010861252,
+    "rmsd_ca": 0.06858040125173481
+   }
+  },
+  {
+   "id": "8tsz",
+   "length_seqres": 231,
+   "length_modeled": 226,
+   "command": "boltz-mlx predict validation/yaml/8tsz.yaml --out_dir data/validation/runs/mlx_gpu_replay/8tsz --override --replay_noise data/8tsz/ref/noise.npz",
+   "wall_s": 18.22,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8tsz/boltz_results_8tsz/predictions/8tsz/8tsz_model_0.cif",
+   "lddt_ca": 0.6574391285771212,
+   "tm_score": 0.6740780268858191,
+   "rmsd_ca": 6.761258433491138,
+   "rmsd_ca_tm_superposition": 7.011843785783858,
+   "n_ref_modeled": 226,
+   "n_scored": 226,
+   "n_seqres": 231,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0007930863522982445,
+    "tm_score": 0.0003679066780870599,
+    "rmsd_ca": -0.0005619440213378013
+   }
+  },
+  {
+   "id": "8c0m",
+   "length_seqres": 234,
+   "length_modeled": 228,
+   "command": "boltz-mlx predict validation/yaml/8c0m.yaml --out_dir data/validation/runs/mlx_gpu_replay/8c0m --override --replay_noise data/8c0m/ref/noise.npz",
+   "wall_s": 17.86,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8c0m/boltz_results_8c0m/predictions/8c0m/8c0m_model_0.cif",
+   "lddt_ca": 0.5733107417641463,
+   "tm_score": 0.6761768114429584,
+   "rmsd_ca": 7.035460776842158,
+   "rmsd_ca_tm_superposition": 7.559994123834574,
+   "n_ref_modeled": 228,
+   "n_scored": 228,
+   "n_seqres": 234,
+   "delta_vs_ref": {
+    "lddt_ca": 0.00163426563478819,
+    "tm_score": -0.0025473769060920803,
+    "rmsd_ca": 0.14411218932969305
+   }
+  },
+  {
+   "id": "8ywo",
+   "length_seqres": 240,
+   "length_modeled": 240,
+   "command": "boltz-mlx predict validation/yaml/8ywo.yaml --out_dir data/validation/runs/mlx_gpu_replay/8ywo --override --replay_noise data/8ywo/ref/noise.npz",
+   "wall_s": 18.16,
+   "returncode": 0,
+   "pred": "data/validation/runs/mlx_gpu_replay/8ywo/boltz_results_8ywo/predictions/8ywo/8ywo_model_0.cif",
+   "lddt_ca": 0.7202808308445867,
+   "tm_score": 0.8337914608952235,
+   "rmsd_ca": 6.59345661345763,
+   "rmsd_ca_tm_superposition": 6.6704243024892484,
+   "n_ref_modeled": 240,
+   "n_scored": 240,
+   "n_seqres": 240,
+   "delta_vs_ref": {
+    "lddt_ca": -0.054726705166211365,
+    "tm_score": -0.051320099193475466,
+    "rmsd_ca": 3.8590976477629044
+   }
+  }
+ ]
+}

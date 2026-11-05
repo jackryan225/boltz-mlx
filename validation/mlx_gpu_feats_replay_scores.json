@@ -1,0 +1,193 @@
+{
+ "name": "mlx_gpu_feats_replay",
+ "command": null,
+ "summary": {
+  "n_cases": 10,
+  "n_ok": 10,
+  "mean_lddt_ca": 0.6278193716674627,
+  "mean_tm_score": 0.632893368867356,
+  "mean_rmsd_ca": 6.648147720553391
+ },
+ "cases": [
+  {
+   "id": "8j9r",
+   "length_seqres": 74,
+   "length_modeled": 72,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8j9r/predictions/8j9r/8j9r_model_0.cif",
+   "lddt_ca": 0.2916091530799467,
+   "tm_score": 0.18127070576960114,
+   "rmsd_ca": 12.763097658073335,
+   "rmsd_ca_tm_superposition": 14.600494816372908,
+   "n_ref_modeled": 72,
+   "n_scored": 72,
+   "n_seqres": 74,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0,
+    "tm_score": 2.479110518538441e-07,
+    "rmsd_ca": 6.689118594138677e-06
+   }
+  },
+  {
+   "id": "8fj8",
+   "length_seqres": 90,
+   "length_modeled": 90,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8fj8/predictions/8fj8/8fj8_model_0.cif",
+   "lddt_ca": 0.9204815491782764,
+   "tm_score": 0.8408154625756716,
+   "rmsd_ca": 2.7996707270507617,
+   "rmsd_ca_tm_superposition": 2.8174284797633056,
+   "n_ref_modeled": 90,
+   "n_scored": 90,
+   "n_seqres": 90,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0,
+    "tm_score": -6.422502785152773e-08,
+    "rmsd_ca": 5.640161047093528e-06
+   }
+  },
+  {
+   "id": "8oxk",
+   "length_seqres": 99,
+   "length_modeled": 94,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8oxk/predictions/8oxk/8oxk_model_0.cif",
+   "lddt_ca": 0.5029149080986702,
+   "tm_score": 0.4267875940379164,
+   "rmsd_ca": 7.78393134090019,
+   "rmsd_ca_tm_superposition": 8.034819722675351,
+   "n_ref_modeled": 94,
+   "n_scored": 94,
+   "n_seqres": 99,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0,
+    "tm_score": -3.462425156475213e-06,
+    "rmsd_ca": 1.3172443077635876e-05
+   }
+  },
+  {
+   "id": "8ti5",
+   "length_seqres": 134,
+   "length_modeled": 131,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8ti5/predictions/8ti5/8ti5_model_0.cif",
+   "lddt_ca": 0.3751161484629887,
+   "tm_score": 0.2774958159497687,
+   "rmsd_ca": 15.065028710980036,
+   "rmsd_ca_tm_superposition": 15.853720847215483,
+   "n_ref_modeled": 131,
+   "n_scored": 131,
+   "n_seqres": 134,
+   "delta_vs_ref": {
+    "lddt_ca": -5.6003424413253455e-05,
+    "tm_score": -1.7897754156503964e-07,
+    "rmsd_ca": -2.01673508257727e-05
+   }
+  },
+  {
+   "id": "8t98",
+   "length_seqres": 148,
+   "length_modeled": 135,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8t98/predictions/8t98/8t98_model_0.cif",
+   "lddt_ca": 0.4607166345511059,
+   "tm_score": 0.5361602139632241,
+   "rmsd_ca": 7.983740133725108,
+   "rmsd_ca_tm_superposition": 8.355846480599428,
+   "n_ref_modeled": 135,
+   "n_scored": 135,
+   "n_seqres": 148,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0,
+    "tm_score": -1.6345962355890364e-06,
+    "rmsd_ca": 1.6014963103216928e-05
+   }
+  },
+  {
+   "id": "8ta1",
+   "length_seqres": 173,
+   "length_modeled": 163,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8ta1/predictions/8ta1/8ta1_model_0.cif",
+   "lddt_ca": 0.8926940198257471,
+   "tm_score": 0.914756196234028,
+   "rmsd_ca": 1.6251667690526603,
+   "rmsd_ca_tm_superposition": 1.6284886963245304,
+   "n_ref_modeled": 163,
+   "n_scored": 163,
+   "n_seqres": 173,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0,
+    "tm_score": -1.767835137944651e-06,
+    "rmsd_ca": 2.1325024970320072e-05
+   }
+  },
+  {
+   "id": "8jqu",
+   "length_seqres": 175,
+   "length_modeled": 164,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8jqu/predictions/8jqu/8jqu_model_0.cif",
+   "lddt_ca": 0.8314837910593532,
+   "tm_score": 0.9142559679434328,
+   "rmsd_ca": 2.0716614284380093,
+   "rmsd_ca_tm_superposition": 2.1636420677194046,
+   "n_ref_modeled": 164,
+   "n_scored": 164,
+   "n_seqres": 175,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0,
+    "tm_score": 9.488607882746081e-07,
+    "rmsd_ca": 6.192785853276206e-05
+   }
+  },
+  {
+   "id": "8tsz",
+   "length_seqres": 231,
+   "length_modeled": 226,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8tsz/predictions/8tsz/8tsz_model_0.cif",
+   "lddt_ca": 0.6566460422248229,
+   "tm_score": 0.6737098583032839,
+   "rmsd_ca": 6.761819553211837,
+   "rmsd_ca_tm_superposition": 6.997359477611116,
+   "n_ref_modeled": 226,
+   "n_scored": 226,
+   "n_seqres": 231,
+   "delta_vs_ref": {
+    "lddt_ca": 0.0,
+    "tm_score": -2.6190444812890235e-07,
+    "rmsd_ca": -8.243006384134333e-07
+   }
+  },
+  {
+   "id": "8c0m",
+   "length_seqres": 234,
+   "length_modeled": 228,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8c0m/predictions/8c0m/8c0m_model_0.cif",
+   "lddt_ca": 0.5717690492119392,
+   "tm_score": 0.678681109393338,
+   "rmsd_ca": 6.891269042093974,
+   "rmsd_ca_tm_superposition": 7.277236636191172,
+   "n_ref_modeled": 228,
+   "n_scored": 228,
+   "n_seqres": 234,
+   "delta_vs_ref": {
+    "lddt_ca": 9.25730825810378e-05,
+    "tm_score": -4.307895571242781e-05,
+    "rmsd_ca": -7.954541849120034e-05
+   }
+  },
+  {
+   "id": "8ywo",
+   "length_seqres": 240,
+   "length_modeled": 240,
+   "pred": "data/validation/runs/mlx_gpu_feats_replay/8ywo/predictions/8ywo/8ywo_model_0.cif",
+   "lddt_ca": 0.774762420981777,
+   "tm_score": 0.8850007645032953,
+   "rmsd_ca": 2.736091842007997,
+   "rmsd_ca_tm_superposition": 2.750904924082213,
+   "n_ref_modeled": 240,
+   "n_scored": 240,
+   "n_seqres": 240,
+   "delta_vs_ref": {
+    "lddt_ca": -0.0002451150290211368,
+    "tm_score": -0.00011079558540361134,
+    "rmsd_ca": 0.0017328763132713476
+   }
+  }
+ ]
+}

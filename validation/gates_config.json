@@ -1,0 +1,90 @@
+{
+  "_comment": "Gate thresholds. PREREG-A = the original pre-registered values. PREREG-B may only change them via gates.py --calibrate (re-specification rule: smallest margin with null pass >= 0.9, capped at 2x the PREREG-A margin); paste recommended_config from the calibration JSON here. Keys omitted fall back to the PREREG-A defaults in gates.py.",
+  "version": "PREREG-A",
+  "ci_level": 0.95,
+  "l3p": {
+    "lddt_ci_lower": -0.01,
+    "lddt_mean": -0.005,
+    "tm_ci_lower": -0.015,
+    "outlier_abs": 0.05,
+    "large_chain_min_residues": 380
+  },
+  "l3l": {
+    "median_ratio_max": 1.25,
+    "p90_ratio_max": 1.5,
+    "chirality_excess_max": 0,
+    "success_cutoff": 2.0,
+    "pocket_radius": 10.0,
+    "n_boot": 10000
+  },
+  "l3a": {
+    "a1_value": 0.05,
+    "a1_prob": 0.02,
+    "a2_ratio_max": 0.5,
+    "a2p_ratio_max": 1.25,
+    "a3_pearson_delta_lower": -0.05,
+    "a3_tau_margin": 0.05,
+    "tau_null": null,
+    "n_boot": 10000,
+    "optional_targets": {
+      "chymase": 15
+    }
+  },
+  "a4": {
+    "exclude_targets": [
+      "bace1"
+    ],
+    "published_pearson": 0.66,
+    "published_source_url": "TODO: source URL of the published 0.66 (reported next to it)",
+    "primary": "unweighted/mw_on",
+    "primary_label": "aggregation assumed (paper setting not recorded by the owner)"
+  },
+  "calibration": {
+    "null_pass_min": 0.9,
+    "conjunction_min": 0.8,
+    "power_min": 0.8,
+    "respec_cap": 2.0,
+    "respec_grid": [
+      1.0,
+      1.05,
+      1.1,
+      1.15,
+      1.2,
+      1.25,
+      1.3,
+      1.35,
+      1.4,
+      1.45,
+      1.5,
+      1.55,
+      1.6,
+      1.65,
+      1.7,
+      1.75,
+      1.8,
+      1.85,
+      1.9,
+      1.95,
+      2.0
+    ],
+    "bad": {
+      "affinity_value_bias": 0.1,
+      "weighted_pearson_delta": -0.1,
+      "ca_lddt_shift": -0.02,
+      "tm_shift": -0.02,
+      "affinity_prob_bias": 0.04,
+      "rmsd_scale": 1.5,
+      "chirality_extra_flip_rate": 0.05
+    },
+    "effect_multiples": [
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "a2_kappa_null": 0.25
+  }
+}

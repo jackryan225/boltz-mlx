@@ -1,0 +1,12 @@
+id,smiles
+thrombin_1a,[NH3+][C@H](Cc1ccccc1)C(=O)N1CCC[C@H]1C(=O)NCc1cccc(F)c1
+thrombin_1b,[NH3+][C@H](Cc1ccccc1)C(=O)N1CCC[C@H]1C(=O)NCc1cccc(Cl)c1
+thrombin_1c,[NH3+][C@H](Cc1ccccc1)C(=O)N1CCC[C@H]1C(=O)NCc1cccc(Br)c1
+thrombin_1d,[NH3+][C@H](Cc1ccccc1)C(=O)N1CCC[C@H]1C(=O)NCc1cccc(I)c1
+thrombin_3a,Cc1cccc(CNC(=O)[C@@H]2CCCN2C(=O)[C@H]([NH3+])Cc2ccccc2)c1
+thrombin_3b,CCc1cccc(CNC(=O)[C@@H]2CCCN2C(=O)[C@H]([NH3+])Cc2ccccc2)c1
+thrombin_5,[NH3+][C@H](Cc1ccccc1)C(=O)N1CCC[C@H]1C(=O)NCc1ccccc1
+thrombin_6a,[NH3+][C@H](Cc1ccccc1)C(=O)N1CCC[C@H]1C(=O)NCc1cc(Cl)ccc1Cl
+thrombin_6b,Cc1ccc(Cl)cc1CNC(=O)[C@@H]1CCCN1C(=O)[C@H]([NH3+])Cc1ccccc1
+thrombin_6e,[NH3+][C@H](Cc1ccccc1)C(=O)N1CCC[C@H]1C(=O)NCc1cc(Cl)ccc1F
+thrombin_7a,Cc1ccc(C)c(CNC(=O)[C@@H]2CCCN2C(=O)[C@H]([NH3+])Cc2ccccc2)c1

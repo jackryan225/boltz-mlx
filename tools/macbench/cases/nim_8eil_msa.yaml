@@ -1,0 +1,12 @@
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: GSHMKPGFLYTIGLSNKGMPGLYRLELQVTKGSGKLATSGLWNSSSAKEQVKIAFDYFKANASRISGGSKVMEHDFHLHVVELQNTGPLSHLALPSLVAFASGLLGRSVQSQMVVLGDMSLGGSVTPVESIAECLQVAFDAGAKKVALPMSSAADIPTIPVELFTKFQTSFYADPVDAVFKGLGVD
+      msa: macbench-env/msa/nim_8eil_0.csv
+  - ligand:
+      id: B
+      ccd: SIN
+properties:
+  - affinity:
+      binder: B

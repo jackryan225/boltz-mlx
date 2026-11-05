@@ -1,0 +1,66 @@
+{
+ "_about": "ColabFold-server MSAs (upstream --use_msa_server path, RBVI fork 2be3519 --msa_only, server https://api.colabfold.com, pairing greedy), fetched 2026-10-31 for the public PDB sequences of the macbench cases (tools/macbench/fetch_msa.sh). The csv files are not in the repository (9b3h_0.csv is 9.7 MB): tools/macbench/fetch_msa.sh fetches them into macbench-env/msa and tools/macbench/check_env.py --need msa compares them with these hashes (a fresh fetch can differ: the ColabFold databases change). rows = csv lines minus the header; paired = rows with a non-negative taxonomy key. 2026-11-02: nim_8eil / nim_7qsj / nim_8cpk / nim_8gpp (NIM-size cases, same path, RBVI fork --msa_only, 4.4-6.7 s each; public RCSB sequences only).",
+ "server": "https://api.colabfold.com",
+ "files": {
+  "8rf4_0.csv": {
+   "sha256": "9759845a8cccbdbe9b9d8663292bad2be521128e5c56fd4ceb8c2bb361a92d06",
+   "rows": 76,
+   "paired_rows": 0
+  },
+  "9b3h_0.csv": {
+   "sha256": "2ba02d9fd4ae47f0d1d440a0c561606b33b6a75ca6fab9b442f4d96f88f08fb8",
+   "rows": 16383,
+   "paired_rows": 1
+  },
+  "9b3h_1.csv": {
+   "sha256": "e6f3fac11baed0dd8bfefc373110ed3e573815b504801107920e071f2567c404",
+   "rows": 55,
+   "paired_rows": 1
+  },
+  "9moj_0.csv": {
+   "sha256": "fa7be94ea0c34a31a234f7add37d40931fc123fc8238e01c023584341fcb7390",
+   "rows": 95,
+   "paired_rows": 34
+  },
+  "9moj_1.csv": {
+   "sha256": "93cf7e662df8e46c0d546905dd7d3c62ea8593adee89eb9efea319f7952b5279",
+   "rows": 201,
+   "paired_rows": 34
+  },
+  "ntca_0.csv": {
+   "sha256": "247289ec903377d1ec0c2b6f2f2fc03eb513c91f19923428d67316e412fbd681",
+   "rows": 7788,
+   "paired_rows": 0
+  },
+  "nim_8eil_0.csv": {
+   "sha256": "237032d6b132c786ae88583939c898340e501c63f11eb135167edcc21313b766",
+   "rows": 4395,
+   "paired_rows": 0
+  },
+  "nim_7qsj_0.csv": {
+   "sha256": "efa20b66558cc0398fe26d4dfd0f37c3de22c438848ad31f26914ca7f86b8ecd",
+   "rows": 4024,
+   "paired_rows": 0
+  },
+  "nim_8cpk_0.csv": {
+   "sha256": "1c12b4f4778b3c2bcfc295899079a0bf5754b1f92ede91b587f9bc53e26c2661",
+   "rows": 16384,
+   "paired_rows": 0
+  },
+  "nim_8gpp_0.csv": {
+   "sha256": "14ad79d8e0e598ebc21918cd2e9f5518d433c9308476d7245894f87fcb747312",
+   "rows": 11578,
+   "paired_rows": 0
+  }
+ },
+ "fetch_times_s": {
+  "8rf4": 8.5,
+  "9moj": 8.2,
+  "9b3h": 10.9,
+  "ntca_aff": 7.6
+ },
+ "fetch_times_note": "MEASURED wall seconds of `boltz predict --use_msa_server --msa_only` per case (process start to exit, includes imports and input processing; the server answered within seconds, possibly from its cache of these popular sequences)",
+ "reused": {
+  "8rf4aff_*": "8rf4_0.csv (same protein)"
+ }
+}

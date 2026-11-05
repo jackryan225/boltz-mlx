@@ -1,0 +1,19 @@
+{
+ "_doc": "per-device tuned configs: the entry of this chip (mx.device_info()['device_name']), else 'default' (boltz_mlx/kernels.py device_cfg; docs/researcher.md 'Tuning on another Mac')",
+ "default": {
+  "atom": "qkvg=4,o=4,ff=1,ba=6,trans=split,aqkvg=1,att=9",
+  "source": "tools/prof/atom_ab.py suggest (logs/atom_ab.jsonl, git 9a20a5c, 2026-10-28 19:27)",
+  "tuned_on": "Apple M5 Pro"
+ },
+ "Apple M5 Pro": {
+  "atom": "qkvg=4,o=4,ff=1,ba=6,trans=split,aqkvg=1,att=9",
+  "source": "tools/prof/atom_ab.py suggest (logs/atom_ab.jsonl, git 9a20a5c, 2026-10-28 19:27)",
+  "tuned_on": "Apple M5 Pro"
+ },
+ "Apple M5 Max": {
+  "atom": "qkvg=4,o=4,ff=1,ba=6,trans=split,aqkvg=1,att=9,o@8192=7,ff@1024=4,ba@8192=11",
+  "source": "tools/prof/chip_sweep.py (logs/chip_sweep.jsonl): candidates from the full sweep (git d971ecd, job boltz-opt-sweep-full-20261029a); kept only the buckets that win or are neutral (<= +1 %) at every size of the interleaved recheck (git ed054cf, job boltz-opt-e2e-abba-20261029b, 2026-10-29 06:50Z); split v2 (kept unchanged in split v3)",
+  "note": "plain entries = the default (M5 Pro) choices; buckets for M = samples * atoms (bitwise-equal configs): o and ba at M <= 8192, ff at M <= 1024 only (ff lost at 3072 / 4544); dropped from v1: aqkvg@8192 (+6 % at 3072)",
+  "tuned_on": "Apple M5 Max"
+ }
+}

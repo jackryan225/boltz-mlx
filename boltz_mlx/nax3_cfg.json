@@ -1,0 +1,26 @@
+{
+ "_doc": "per-device tuned configs: the entry of this chip (mx.device_info()['device_name']), else 'default' (boltz_mlx/kernels.py device_cfg; docs/researcher.md 'Tuning on another Mac')",
+ "default": {
+  "gemm": "qkvg=mlx,o=5,ff=2,ba=3,cond=2",
+  "pair": "tail=0,lin=0,tail3=5,trans3=1",
+  "source": "tools/prof/nax3_ab.py suggest (logs/nax3.jsonl, git 35b6a31, 2026-10-28 18:26)",
+  "source_pair_r5": "tools/prof/pair_profile.py (logs/pair_profile.jsonl, pair_r5_summary, git b7a7493, 2026-10-28 20:06:26)",
+  "source_pair_r6": "tools/prof/pair_profile.py (logs/pair_profile.jsonl, pair_r6_summary, git 71f9be9, 2026-10-28 20:30:27)",
+  "tuned_on": "Apple M5 Pro"
+ },
+ "Apple M5 Pro": {
+  "gemm": "qkvg=mlx,o=5,ff=2,ba=3,cond=2",
+  "pair": "tail=0,lin=0,tail3=5,trans3=1",
+  "source": "tools/prof/nax3_ab.py suggest (logs/nax3.jsonl, git 35b6a31, 2026-10-28 18:26)",
+  "source_pair_r5": "tools/prof/pair_profile.py (logs/pair_profile.jsonl, pair_r5_summary, git b7a7493, 2026-10-28 20:06:26)",
+  "source_pair_r6": "tools/prof/pair_profile.py (logs/pair_profile.jsonl, pair_r6_summary, git 71f9be9, 2026-10-28 20:30:27)",
+  "tuned_on": "Apple M5 Pro"
+ },
+ "Apple M5 Max": {
+  "gemm": "qkvg=mlx,o=5,ff=2,ba=3,cond=2,o@160=7,ff@160=4,ba@160=7",
+  "pair": "tail=0,lin=0,tail3=5,trans3=1",
+  "source": "tools/prof/chip_sweep.py (logs/chip_sweep.jsonl): candidates from the full sweep (git d971ecd, job boltz-opt-sweep-full-20261029a); kept only the buckets that win or are neutral (<= +1 %) at every size of the interleaved recheck (git ed054cf, job boltz-opt-e2e-abba-20261029b, 2026-10-29 06:50Z); split v2 after that job's ABBA (aff200 +5.2 %); split v3 after job boltz-opt-e2e-abba-20261029c (v2: prot400 +1.18 % pooled, trunk slower under B in v1 and v2)",
+  "note": "plain entries = the default (M5 Pro) choices; buckets (site@MAX = rows / tokens <= MAX) pick bitwise-equal launch configs only where the recheck measured a win: token GEMM o / ff / ba at M <= 160 (diffusion token transformer, one sample, N <= 160); pair sites = the default at every N. Dropped in v3: o@700, ba@700, pproj@700, tail3@700, trans3@700 (N / M 301..700) and the @300 items that restated the default below them; dropped in v2: o@1100, cond@160, tail3@160, trans3@160, lin_end@160, triatt wq (tests/test_cfg_bitwise.py, tools/prof/cfg_e2e_bitwise.py)",
+  "tuned_on": "Apple M5 Max"
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "_doc": "per-device MSA kernel configs (kernels_msa opm_outer = opm, opm_outer_proj = opm_nax, pwa_avg = pwa): the entry of this chip, else 'default'; written by tools/prof/msa_kernels.py suggest --write",
+ "default": {
+  "opm": {"ti": 4, "tj": 4, "si": 1, "sj": 2, "bk": 8, "swz": 0, "at": 1},
+  "opm_nax": {"ti": 4, "tj": 4, "si": 1, "sj": 2, "bk": 8, "at": 0, "kc": 256},
+  "pwa": {"bm": 64, "ts": 2, "wm": 2, "wn": 2, "bk": 16},
+  "source": "kernels.py MSA_*_CFG A/B best (msa384: OPM module 17.7 ms, OPM+NAX core 16.98 ms, PWA module 5.54 ms; 2026-10-28)",
+  "tuned_on": "Apple M5 Pro"
+ },
+ "Apple M5 Pro": {
+  "opm": {"ti": 4, "tj": 4, "si": 1, "sj": 2, "bk": 8, "swz": 0, "at": 1},
+  "opm_nax": {"ti": 4, "tj": 4, "si": 1, "sj": 2, "bk": 8, "at": 0, "kc": 256},
+  "pwa": {"bm": 64, "ts": 2, "wm": 2, "wn": 2, "bk": 16},
+  "source": "kernels.py MSA_*_CFG A/B best (msa384: OPM module 17.7 ms, OPM+NAX core 16.98 ms, PWA module 5.54 ms; 2026-10-28)",
+  "tuned_on": "Apple M5 Pro"
+ }
+}

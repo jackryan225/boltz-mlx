@@ -1,0 +1,166 @@
+{
+ "_about": "Published Mac Boltz numbers, read from the pages themselves on 2026-10-31 (raw HTML parsed). Minutes unless stated. Nothing here is MEASURED by us. Settings the pages do not state are listed as unstated.",
+ "chimerax_runtimes": {
+  "url": "https://www.rbvi.ucsf.edu/chimerax/data/boltz-apr2025/runtimes.html (the same rows, first number per cell, are in https://www.rbvi.ucsf.edu/chimerax/data/boltz-apr2025/boltz_help.html#runtimes)",
+  "software": "Boltz 2.1.1 (the help page: July 9, 2025 source; runtimes.html: 'actually slightly newer July 8, 2025(?)'), Mac: no kernels, 32-bit precision, torch 2.9 per the help page",
+  "chips": {
+   "M1_16GB": "Mac Mini, 8 core GPU",
+   "M1_Max_32GB": "MacBook Pro, 32 core GPU",
+   "M2_Ultra_64GB": "Mac Studio, 60 core GPU"
+  },
+  "unstated": "sampling steps; whether MSA time is included; seed; number of runs; MSA server cache state",
+  "stated": "recycles default 3, samples default 1, ColabFold MSA server (api.colabfold.com), float16 option default false (Mac uses fp32), steering default false",
+  "rows": {
+   "8rf4": {
+    "tokens": 129,
+    "b2": {
+     "M1_16GB": 1.2,
+     "M1_Max_32GB": 0.8,
+     "M2_Ultra_64GB": 0.8
+    },
+    "b2a_with_affinity": {
+     "M1_16GB": 3.7,
+     "M1_Max_32GB": 1.8,
+     "M2_Ultra_64GB": 1.5
+    }
+   },
+   "1hho": {
+    "tokens": 382,
+    "b2": {
+     "M1_16GB": "fail",
+     "M1_Max_32GB": 1.5,
+     "M2_Ultra_64GB": 1.4
+    }
+   },
+   "9moj": {
+    "tokens": 660,
+    "b2": {
+     "M1_16GB": 18,
+     "M1_Max_32GB": 3.8,
+     "M2_Ultra_64GB": 2.3
+    }
+   },
+   "9h1k": {
+    "tokens": 671,
+    "b2": {
+     "M1_16GB": 23,
+     "M1_Max_32GB": 4.9,
+     "M2_Ultra_64GB": 2.7
+    }
+   },
+   "9b3h": {
+    "tokens": 911,
+    "b2": {
+     "M1_16GB": "fail",
+     "M1_Max_32GB": 10,
+     "M2_Ultra_64GB": 5.1
+    }
+   },
+   "9fz5": {
+    "tokens": 1025,
+    "b2": {
+     "M1_16GB": "fail (runtimes.html: 'fail b1' only; blank in the help table)",
+     "M1_Max_32GB": 13,
+     "M2_Ultra_64GB": 7.0
+    }
+   },
+   "9mcw": {
+    "tokens": 1154,
+    "b2": {
+     "M1_16GB": "fail (runtimes.html)",
+     "M1_Max_32GB": 18,
+     "M2_Ultra_64GB": 7.2
+    }
+   },
+   "8sa0": {
+    "tokens": 1371,
+    "b2": {
+     "M1_16GB": "not run",
+     "M1_Max_32GB": 28,
+     "M2_Ultra_64GB": 38
+    }
+   },
+   "9gh4": {
+    "tokens": 1467,
+    "b2": {
+     "M1_16GB": "not run",
+     "M1_Max_32GB": 32,
+     "M2_Ultra_64GB": 41
+    }
+   }
+  }
+ },
+ "chimerax_pncc_workshop": {
+  "url": "https://www.rbvi.ucsf.edu/chimerax/data/pncc-workshop-sep2025/pncc_boltz.html",
+  "input": "NTCA dimer (PDB 9GQU, 2 x 222 aa) + 2 x DNA 31-mer CATTTTTATGTATCAGCTGATACATAAAAAT + AKG, structure AND affinity; Boltz 2.2 installed by ChimeraX daily build; text: about 2 min structure, 1 min affinity",
+  "minutes": {
+   "Mac_Studio_M2_Ultra": 3.5,
+   "MacBook_Pro_M1_Max": 6,
+   "Mac_Mini_M1_16GB": 25,
+   "Linux_Nvidia_4090": 1,
+   "Windows_Nvidia_3070": 4,
+   "Linux_i9_CPU": 21,
+   "Windows_i7_CPU": 28
+  },
+  "reported_results": "confidence 0.93, pTM 0.95, ipTM 0.95, pLDDT 0.93; AKG affinity 7.3 uM, binding probability 0.78 (https://www.rbvi.ucsf.edu/chimerax/data/pncc-workshop-sep2025/ntca_dna.html)",
+  "unstated": "steps, seed, MSA accounting, run count"
+ },
+ "moleculedesk": {
+  "url": "https://www.moleculedesk.com/docs/models/boltz (and https://www.moleculedesk.com/docs/benchmarks, which carries only the RTX 3090 rows)",
+  "text": "Apple M3, 'The 115-residue example finished in about 88 s' (single statement, no run count; the 3090 rows say median of 3). Workload line: single protein chain, 115 residues, no MSA (examples/boltz/protein.yaml), 1 sample. Mac install: Novel-Therapeutics/boltz-community fork (MPS), Boltz 2.2.1.",
+  "input_check": "examples/boltz/protein.yaml is in https://github.com/pooriyapfn/moldesk (its guide says sourced from Boltz's upstream examples); the file read on 2026-10-31 is 117 residues with msa: empty and is identical to upstream examples/prot_no_msa.yaml (= our prot117), not 115",
+  "seconds_M3": 88,
+  "unstated": "RAM, steps, recycles, seed, whether the 88 s includes process start / model load"
+ },
+ "nvidia_nim_h100": {
+  "url": "https://docs.nvidia.com/nim/bionemo/boltz2/1.7.0/performance.html (tables headed 'Boltz2 v1.6.0'; page sha256 caa82bc918f0dcafdcb50cfd8418d37561914234f222f26fb3dca78abbe198a1 as read on 2026-11-02, rows re-checked against it)",
+  "hardware": "H100 80GB HBM3 (NVIDIA); 'OSS' = the open-source implementation as the page labels it (not defined further), 'TensorRT' = NIM",
+  "undisclosed": "sampling steps, recycles, number of samples, whether MSA / featurisation time is in the runtime, warm vs cold, whether the structure rows include the affinity module, seeds, run count, what ligand the affinity rows use",
+  "seconds": {
+   "8eil": {
+    "length": 186,
+    "structure": {
+     "oss": 11.07,
+     "trt": 1.72
+    },
+    "affinity": {
+     "oss": 18.52,
+     "trt": 6.21
+    }
+   },
+   "7qsj": {
+    "length": 375,
+    "structure": {
+     "oss": 7.76,
+     "trt": 3.81
+    },
+    "affinity": {
+     "oss": 23.44,
+     "trt": 7.89
+    }
+   },
+   "8cpk": {
+    "length": 384,
+    "structure": {
+     "oss": 7.93,
+     "trt": 5.47
+    },
+    "affinity": {
+     "oss": 24.43,
+     "trt": 8.89
+    }
+   },
+   "8gpp": {
+    "length": 628,
+    "structure": {
+     "oss": 15.4,
+     "trt": 8.23
+    },
+    "affinity": {
+     "oss": 34.03,
+     "trt": 13.24
+    }
+   }
+  }
+ }
+}

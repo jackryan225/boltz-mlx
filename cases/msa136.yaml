@@ -1,0 +1,7 @@
+# 136-res query of upstream examples/msa/seq2.a3m with that MSA (75 rows after dedup)
+version: 1
+sequences:
+  - protein:
+      id: A
+      sequence: SDQLEDSEVEAVAKGLEEXYANGVTEDNFKNYVKNNFAQQEISSVEEELNVNISDASTVVQARFNWNALGSCVANKIKDEFFAXISISAIVKAAQKKAWKELAVTVLRFAKANGLKTNAIIVAGQLALWAVQCGLS
+      msa: cases/msa/seq2.a3m

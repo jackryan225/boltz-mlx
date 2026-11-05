@@ -1,0 +1,187 @@
+[
+ {
+  "case": "8rf4_empty",
+  "msa_rows": 1,
+  "tokens_features": 129,
+  "tokens_tokenizer": 129,
+  "chains": [
+   [
+    "A",
+    "0",
+    118
+   ],
+   [
+    "B",
+    "3",
+    1
+   ]
+  ],
+  "n_atoms": 931,
+  "expected_published": 129,
+  "status": "MATCH"
+ },
+ {
+  "case": "8rf4aff_empty",
+  "msa_rows": 1,
+  "tokens_features": 129,
+  "tokens_tokenizer": 129,
+  "chains": [
+   [
+    "A",
+    "0",
+    118
+   ],
+   [
+    "B",
+    "3",
+    1
+   ]
+  ],
+  "n_atoms": 931,
+  "expected_published": 129,
+  "status": "MATCH"
+ },
+ {
+  "case": "9b3h_empty",
+  "msa_rows": 1,
+  "tokens_features": 911,
+  "tokens_tokenizer": 911,
+  "chains": [
+   [
+    "A",
+    "0",
+    600
+   ],
+   [
+    "B",
+    "0",
+    311
+   ]
+  ],
+  "n_atoms": 7154,
+  "expected_published": 911,
+  "status": "MATCH"
+ },
+ {
+  "case": "9moj_empty",
+  "msa_rows": 1,
+  "tokens_features": 660,
+  "tokens_tokenizer": 660,
+  "chains": [
+   [
+    "A",
+    "0",
+    151
+   ],
+   [
+    "B",
+    "0",
+    151
+   ],
+   [
+    "C",
+    "0",
+    179
+   ],
+   [
+    "D",
+    "0",
+    179
+   ]
+  ],
+  "n_atoms": 5408,
+  "expected_published": 660,
+  "status": "MATCH"
+ },
+ {
+  "case": "lig_aff_empty",
+  "msa_rows": 1,
+  "tokens_features": 397,
+  "tokens_tokenizer": 397,
+  "chains": [
+   [
+    "A",
+    "0",
+    384
+   ],
+   [
+    "B",
+    "3",
+    1
+   ]
+  ],
+  "n_atoms": 2974,
+  "expected_published": null,
+  "status": "n/a (no published count)"
+ },
+ {
+  "case": "ntca_aff_empty",
+  "msa_rows": 1,
+  "tokens_features": 516,
+  "tokens_tokenizer": 516,
+  "chains": [
+   [
+    "A",
+    "0",
+    222
+   ],
+   [
+    "B",
+    "0",
+    222
+   ],
+   [
+    "C",
+    "1",
+    31
+   ],
+   [
+    "D",
+    "1",
+    31
+   ],
+   [
+    "E",
+    "3",
+    1
+   ]
+  ],
+  "n_atoms": 4768,
+  "expected_published": null,
+  "status": "n/a (no published count)",
+  "note": "2 x 222 aa + 2 x 31 nt + AKG heavy atoms (10): 516 expected from the sequences (not published)"
+ },
+ {
+  "case": "prot117_empty",
+  "msa_rows": 1,
+  "tokens_features": 117,
+  "tokens_tokenizer": 117,
+  "chains": [
+   [
+    "A",
+    "0",
+    117
+   ]
+  ],
+  "n_atoms": 899,
+  "expected_published": null,
+  "status": "n/a (no published count)",
+  "note": "117 aa (MoleculeDesk's page says 115; its YAML has 117)"
+ },
+ {
+  "case": "prot400_empty",
+  "msa_rows": 1,
+  "tokens_features": 400,
+  "tokens_tokenizer": 400,
+  "chains": [
+   [
+    "A",
+    "0",
+    400
+   ]
+  ],
+  "n_atoms": 3068,
+  "expected_published": null,
+  "status": "n/a (no published count)"
+ }
+]

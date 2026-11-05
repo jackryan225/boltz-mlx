@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+/data/
+/weights/
+/dumps/
+*.safetensors
+*.npz
+*.pt
+.pytest_cache/
+/.claude/
+/runs_cli/
+/tmp_install/
+/.scratch/
+/macbench-env/
+/logs/

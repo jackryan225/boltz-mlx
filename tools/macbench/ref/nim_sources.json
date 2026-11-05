@@ -1,0 +1,34 @@
+{
+ "8eil": {
+  "url": "https://files.rcsb.org/download/8eil.cif",
+  "cif_sha256": "c9416b449d1f29a26bb0f646a561acd27f6fdd5ef4fb35f294227e89ef980a79",
+  "cif_bytes": 647910,
+  "entity_length": 186,
+  "chains": "A, B, C, D",
+  "accessed": "2026-11-02 (8eil / 7qsj / 8cpk cifs from 2026-10-27, tools/data/nim_cases.py)"
+ },
+ "7qsj": {
+  "url": "https://files.rcsb.org/download/7qsj.cif",
+  "cif_sha256": "7b8e54181c1d3eda56f278148c805edf58d27fecf41b72ae110f4bffdf4095dd",
+  "cif_bytes": 1338386,
+  "entity_length": 373,
+  "chains": "A, B",
+  "accessed": "2026-11-02 (8eil / 7qsj / 8cpk cifs from 2026-10-27, tools/data/nim_cases.py)"
+ },
+ "8cpk": {
+  "url": "https://files.rcsb.org/download/8cpk.cif",
+  "cif_sha256": "aa38b91b17bacce6bbc4108e1db716cf10400e4d131f80a53357b21787baafd8",
+  "cif_bytes": 3702189,
+  "entity_length": 384,
+  "chains": "A, B, C, D",
+  "accessed": "2026-11-02 (8eil / 7qsj / 8cpk cifs from 2026-10-27, tools/data/nim_cases.py)"
+ },
+ "8gpp": {
+  "url": "https://files.rcsb.org/download/8gpp.cif",
+  "cif_sha256": "3fba07d33aa9ba41079ef0c39639004fcd5ff7f04915c167f4ad59bbe314c81b",
+  "cif_bytes": 915870,
+  "entity_length": 208,
+  "chains": "A, B, C",
+  "accessed": "2026-11-02 (8eil / 7qsj / 8cpk cifs from 2026-10-27, tools/data/nim_cases.py)"
+ }
+}

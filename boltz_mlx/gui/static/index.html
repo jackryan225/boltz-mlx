@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="boltz-token" content="__BOLTZ_TOKEN__">
+<title>Boltz-2 MLX</title>
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#/predict" aria-label="Boltz-2 MLX">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><use href="/static/icon.svg#mark"/></svg>
+      <b>Boltz-2 <i>MLX</i></b>
+    </a>
+    <nav class="tabs" aria-label="Main">
+      <a href="#/predict" data-nav="predict">Predict</a>
+      <a href="#/screen" data-nav="screen">Screen</a>
+      <a href="#/runs" data-nav="runs">Runs <span class="pip" id="active-pip" hidden title="A job is running"></span></a>
+    </nav>
+    <div class="spacer"></div>
+    <div class="nav-right">
+      <span class="chip-badge" id="chip-badge" hidden></span>
+      <button type="button" class="btn ghost icon-only" id="btn-about" aria-label="About" title="About"></button>
+      <button type="button" class="btn ghost icon-only" id="btn-theme" aria-label="Switch between light and dark mode" title="Light / dark mode"></button>
+    </div>
+  </div>
+</header>
+<div id="conn" class="banner conn" role="status" hidden></div>
+<div id="banner" class="banner" hidden></div>
+<div class="shell">
+  <aside class="side" id="side" aria-label="Recent runs"></aside>
+  <div class="col">
+    <main id="view" tabindex="-1"></main>
+    <footer class="foot">
+      <button type="button" class="link" id="btn-about2">About</button><span class="grow"></span><span id="foot-version"></span>
+    </footer>
+  </div>
+</div>
+<dialog id="about" aria-labelledby="about-title"></dialog>
+<div id="status" class="sr" role="status" aria-live="polite"></div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<noscript><p style="padding:24px">JavaScript is required.</p></noscript>
+<script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

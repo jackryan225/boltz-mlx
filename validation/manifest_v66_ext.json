@@ -1,0 +1,2468 @@
+{
+ "release_cutoff": "initial release date >= 2023-07-01",
+ "query_endpoint": "https://search.rcsb.org/rcsbsearch/v2/query",
+ "selection_notes": "V66 extension (round 2): 30 further chains, same filters as V30/V36, seed-1 permutation of the sorted union of the 60-300 (round 1) and 300-500 candidate ids, size spread matching V30 (8 x 60-120, 11 x 120-200, 8 x 200-300, 3 x 300-500), distinct UniProt from V36 and from each other. Not run unless the null calibration shows L3-P underpowered on V36.",
+ "query": {
+  "60-300": {
+   "query": {
+    "type": "group",
+    "logical_operator": "and",
+    "nodes": [
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_accession_info.initial_release_date",
+       "operator": "greater_or_equal",
+       "value": "2023-07-01T00:00:00Z"
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "exptl.method",
+       "operator": "exact_match",
+       "value": "X-RAY DIFFRACTION"
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.resolution_combined",
+       "operator": "less_or_equal",
+       "value": 2.5
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.polymer_entity_count",
+       "operator": "equals",
+       "value": 1
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.polymer_entity_count_protein",
+       "operator": "equals",
+       "value": 1
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+       "operator": "equals",
+       "value": 1
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+       "operator": "range",
+       "value": {
+        "from": 60,
+        "to": 300,
+        "include_lower": true,
+        "include_upper": true
+       }
+      }
+     }
+    ]
+   },
+   "return_type": "entry",
+   "request_options": {
+    "paginate": {
+     "start": 0,
+     "rows": 10000
+    },
+    "sort": [
+     {
+      "sort_by": "rcsb_accession_info.initial_release_date",
+      "direction": "asc"
+     }
+    ]
+   }
+  },
+  "300-500": {
+   "query": {
+    "type": "group",
+    "logical_operator": "and",
+    "nodes": [
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_accession_info.initial_release_date",
+       "operator": "greater_or_equal",
+       "value": "2023-07-01T00:00:00Z"
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "exptl.method",
+       "operator": "exact_match",
+       "value": "X-RAY DIFFRACTION"
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.resolution_combined",
+       "operator": "less_or_equal",
+       "value": 2.5
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.polymer_entity_count",
+       "operator": "equals",
+       "value": 1
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.polymer_entity_count_protein",
+       "operator": "equals",
+       "value": 1
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+       "operator": "equals",
+       "value": 1
+      }
+     },
+     {
+      "type": "terminal",
+      "service": "text",
+      "parameters": {
+       "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+       "operator": "range",
+       "value": {
+        "from": 300,
+        "to": 500,
+        "include_lower": true,
+        "include_upper": true
+       }
+      }
+     }
+    ]
+   },
+   "return_type": "entry",
+   "request_options": {
+    "paginate": {
+     "start": 0,
+     "rows": 10000
+    },
+    "sort": [
+     {
+      "sort_by": "rcsb_accession_info.initial_release_date",
+      "direction": "asc"
+     }
+    ]
+   }
+  }
+ },
+ "cases": [
+  {
+   "id": "9hk0",
+   "pdb_id": "9HK0",
+   "chain": "A",
+   "release_date": "2024-12-11",
+   "resolution": 1.61,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 76,
+   "length_modeled": 76,
+   "frac_modeled": 1.0,
+   "description": "Transcription factor ETV7",
+   "cif": "data/validation/cif/9hk0.cif",
+   "yaml": "validation/yaml/9hk0.yaml"
+  },
+  {
+   "id": "8yk7",
+   "pdb_id": "8YK7",
+   "chain": "A",
+   "release_date": "2024-09-11",
+   "resolution": 1.35,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 80,
+   "length_modeled": 80,
+   "frac_modeled": 1.0,
+   "description": "YSIRK signal domain/LPXTG anchor domain surface protein",
+   "cif": "data/validation/cif/8yk7.cif",
+   "yaml": "validation/yaml/8yk7.yaml"
+  },
+  {
+   "id": "9en7",
+   "pdb_id": "9EN7",
+   "chain": "A",
+   "release_date": "2024-11-13",
+   "resolution": 1.19,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 90,
+   "length_modeled": 84,
+   "frac_modeled": 0.933,
+   "description": "Heterogeneous nuclear ribonucleoprotein 27C",
+   "cif": "data/validation/cif/9en7.cif",
+   "yaml": "validation/yaml/9en7.yaml"
+  },
+  {
+   "id": "10xb",
+   "pdb_id": "10XB",
+   "chain": "A",
+   "release_date": "2026-06-03",
+   "resolution": 2.4,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 99,
+   "length_modeled": 99,
+   "frac_modeled": 1.0,
+   "description": "Chromosomal replication initiator protein DnaA",
+   "cif": "data/validation/cif/10xb.cif",
+   "yaml": "validation/yaml/10xb.yaml"
+  },
+  {
+   "id": "8h1e",
+   "pdb_id": "8H1E",
+   "chain": "A",
+   "release_date": "2023-08-16",
+   "resolution": 1.22,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 102,
+   "length_modeled": 102,
+   "frac_modeled": 1.0,
+   "description": "DNA mismatch repair protein MutL",
+   "cif": "data/validation/cif/8h1e.cif",
+   "yaml": "validation/yaml/8h1e.yaml"
+  },
+  {
+   "id": "8px2",
+   "pdb_id": "8PX2",
+   "chain": "A",
+   "release_date": "2023-10-18",
+   "resolution": 1.622,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 115,
+   "length_modeled": 113,
+   "frac_modeled": 0.983,
+   "description": "Bromodomain-containing protein 2",
+   "cif": "data/validation/cif/8px2.cif",
+   "yaml": "validation/yaml/8px2.yaml"
+  },
+  {
+   "id": "8qaz",
+   "pdb_id": "8QAZ",
+   "chain": "A",
+   "release_date": "2024-09-11",
+   "resolution": 1.4,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 116,
+   "length_modeled": 113,
+   "frac_modeled": 0.974,
+   "description": "Peregrin",
+   "cif": "data/validation/cif/8qaz.cif",
+   "yaml": "validation/yaml/8qaz.yaml"
+  },
+  {
+   "id": "7ilx",
+   "pdb_id": "7ILX",
+   "chain": "A",
+   "release_date": "2026-08-26",
+   "resolution": 1.54,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 117,
+   "length_modeled": 116,
+   "frac_modeled": 0.991,
+   "description": "Nucleoprotein",
+   "cif": "data/validation/cif/7ilx.cif",
+   "yaml": "validation/yaml/7ilx.yaml"
+  },
+  {
+   "id": "9smc",
+   "pdb_id": "9SMC",
+   "chain": "A",
+   "release_date": "2026-09-16",
+   "resolution": 1.96,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 129,
+   "length_modeled": 129,
+   "frac_modeled": 1.0,
+   "description": "Lysozyme C",
+   "cif": "data/validation/cif/9smc.cif",
+   "yaml": "validation/yaml/9smc.yaml"
+  },
+  {
+   "id": "7hyj",
+   "pdb_id": "7HYJ",
+   "chain": "A",
+   "release_date": "2025-02-26",
+   "resolution": 1.837,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 144,
+   "length_modeled": 139,
+   "frac_modeled": 0.965,
+   "description": "Protease 2A",
+   "cif": "data/validation/cif/7hyj.cif",
+   "yaml": "validation/yaml/7hyj.yaml"
+  },
+  {
+   "id": "9kez",
+   "pdb_id": "9KEZ",
+   "chain": "A",
+   "release_date": "2025-08-27",
+   "resolution": 1.95,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 163,
+   "length_modeled": 147,
+   "frac_modeled": 0.902,
+   "description": "Peptidyl-prolyl cis-trans isomerase NIMA-interacting 1",
+   "cif": "data/validation/cif/9kez.cif",
+   "yaml": "validation/yaml/9kez.yaml"
+  },
+  {
+   "id": "9gn8",
+   "pdb_id": "9GN8",
+   "chain": "AAA",
+   "release_date": "2025-05-07",
+   "resolution": 1.96,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 169,
+   "length_modeled": 169,
+   "frac_modeled": 1.0,
+   "description": "Ubiquitin-fold modifier-conjugating enzyme 1",
+   "cif": "data/validation/cif/9gn8.cif",
+   "yaml": "validation/yaml/9gn8.yaml"
+  },
+  {
+   "id": "9hin",
+   "pdb_id": "9HIN",
+   "chain": "A",
+   "release_date": "2025-01-15",
+   "resolution": 1.55,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 175,
+   "length_modeled": 170,
+   "frac_modeled": 0.971,
+   "description": "E3 ubiquitin-protein ligase TRIM7",
+   "cif": "data/validation/cif/9hin.cif",
+   "yaml": "validation/yaml/9hin.yaml"
+  },
+  {
+   "id": "9vod",
+   "pdb_id": "9VOD",
+   "chain": "A",
+   "release_date": "2026-06-10",
+   "resolution": 1.92,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 182,
+   "length_modeled": 172,
+   "frac_modeled": 0.945,
+   "description": "Ferritin heavy chain, N-terminally processed",
+   "cif": "data/validation/cif/9vod.cif",
+   "yaml": "validation/yaml/9vod.yaml"
+  },
+  {
+   "id": "8fpw",
+   "pdb_id": "8FPW",
+   "chain": "A",
+   "release_date": "2024-06-05",
+   "resolution": 1.4,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 183,
+   "length_modeled": 180,
+   "frac_modeled": 0.984,
+   "description": "Transforming protein RhoA",
+   "cif": "data/validation/cif/8fpw.cif",
+   "yaml": "validation/yaml/8fpw.yaml"
+  },
+  {
+   "id": "8edy",
+   "pdb_id": "8EDY",
+   "chain": "A",
+   "release_date": "2023-09-20",
+   "resolution": 1.18,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 185,
+   "length_modeled": 170,
+   "frac_modeled": 0.919,
+   "description": "GTPase KRas",
+   "cif": "data/validation/cif/8edy.cif",
+   "yaml": "validation/yaml/8edy.yaml"
+  },
+  {
+   "id": "27ae",
+   "pdb_id": "27AE",
+   "chain": "A",
+   "release_date": "2026-06-03",
+   "resolution": 1.9,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 187,
+   "length_modeled": 178,
+   "frac_modeled": 0.952,
+   "description": "DNA-binding protein",
+   "cif": "data/validation/cif/27ae.cif",
+   "yaml": "validation/yaml/27ae.yaml"
+  },
+  {
+   "id": "8sth",
+   "pdb_id": "8STH",
+   "chain": "A",
+   "release_date": "2023-07-26",
+   "resolution": 1.97,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 187,
+   "length_modeled": 173,
+   "frac_modeled": 0.925,
+   "description": "Stimulator of interferon genes protein",
+   "cif": "data/validation/cif/8sth.cif",
+   "yaml": "validation/yaml/8sth.yaml"
+  },
+  {
+   "id": "9rwe",
+   "pdb_id": "9RWE",
+   "chain": "A",
+   "release_date": "2026-07-22",
+   "resolution": 1.99,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 197,
+   "length_modeled": 192,
+   "frac_modeled": 0.975,
+   "description": "Fimbrial protein",
+   "cif": "data/validation/cif/9rwe.cif",
+   "yaml": "validation/yaml/9rwe.yaml"
+  },
+  {
+   "id": "9pct",
+   "pdb_id": "9PCT",
+   "chain": "A",
+   "release_date": "2025-09-17",
+   "resolution": 1.41,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 231,
+   "length_modeled": 223,
+   "frac_modeled": 0.965,
+   "description": "Trypsin",
+   "cif": "data/validation/cif/9pct.cif",
+   "yaml": "validation/yaml/9pct.yaml"
+  },
+  {
+   "id": "9fse",
+   "pdb_id": "9FSE",
+   "chain": "A",
+   "release_date": "2024-07-10",
+   "resolution": 2.48,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 238,
+   "length_modeled": 223,
+   "frac_modeled": 0.937,
+   "description": "Tyrosine-protein kinase transmembrane receptor ROR2",
+   "cif": "data/validation/cif/9fse.cif",
+   "yaml": "validation/yaml/9fse.yaml"
+  },
+  {
+   "id": "9zjq",
+   "pdb_id": "9ZJQ",
+   "chain": "A",
+   "release_date": "2025-12-24",
+   "resolution": 2.2,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 249,
+   "length_modeled": 241,
+   "frac_modeled": 0.968,
+   "description": "Prostate-specific antigen",
+   "cif": "data/validation/cif/9zjq.cif",
+   "yaml": "validation/yaml/9zjq.yaml"
+  },
+  {
+   "id": "9kiw",
+   "pdb_id": "9KIW",
+   "chain": "A",
+   "release_date": "2026-05-20",
+   "resolution": 1.2,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 260,
+   "length_modeled": 257,
+   "frac_modeled": 0.988,
+   "description": "Carbonic anhydrase 2",
+   "cif": "data/validation/cif/9kiw.cif",
+   "yaml": "validation/yaml/9kiw.yaml"
+  },
+  {
+   "id": "9w2e",
+   "pdb_id": "9W2E",
+   "chain": "A",
+   "release_date": "2026-07-29",
+   "resolution": 1.93,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 268,
+   "length_modeled": 257,
+   "frac_modeled": 0.959,
+   "description": "Small exopenicillinase",
+   "cif": "data/validation/cif/9w2e.cif",
+   "yaml": "validation/yaml/9w2e.yaml"
+  },
+  {
+   "id": "9tmx",
+   "pdb_id": "9TMX",
+   "chain": "A",
+   "release_date": "2026-07-29",
+   "resolution": 1.7,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 284,
+   "length_modeled": 257,
+   "frac_modeled": 0.905,
+   "description": "Serine/threonine-protein kinase PknA",
+   "cif": "data/validation/cif/9tmx.cif",
+   "yaml": "validation/yaml/9tmx.yaml"
+  },
+  {
+   "id": "8c09",
+   "pdb_id": "8C09",
+   "chain": "A",
+   "release_date": "2023-12-27",
+   "resolution": 1.9,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 289,
+   "length_modeled": 272,
+   "frac_modeled": 0.941,
+   "description": "Tyrosine-protein kinase JAK2",
+   "cif": "data/validation/cif/8c09.cif",
+   "yaml": "validation/yaml/8c09.yaml"
+  },
+  {
+   "id": "8j5x",
+   "pdb_id": "8J5X",
+   "chain": "A",
+   "release_date": "2023-09-20",
+   "resolution": 2.09192247704,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 299,
+   "length_modeled": 296,
+   "frac_modeled": 0.99,
+   "description": "High affinity nerve growth factor receptor",
+   "cif": "data/validation/cif/8j5x.cif",
+   "yaml": "validation/yaml/8j5x.yaml"
+  },
+  {
+   "id": "9qek",
+   "pdb_id": "9QEK",
+   "chain": "A",
+   "release_date": "2025-04-30",
+   "resolution": 2.205,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 301,
+   "length_modeled": 275,
+   "frac_modeled": 0.914,
+   "description": "Proto-oncogene tyrosine-protein kinase ROS",
+   "cif": "data/validation/cif/9qek.cif",
+   "yaml": "validation/yaml/9qek.yaml"
+  },
+  {
+   "id": "8glr",
+   "pdb_id": "8GLR",
+   "chain": "A",
+   "release_date": "2023-07-05",
+   "resolution": 1.83,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 336,
+   "length_modeled": 319,
+   "frac_modeled": 0.949,
+   "description": "SIS domain-containing protein",
+   "cif": "data/validation/cif/8glr.cif",
+   "yaml": "validation/yaml/8glr.yaml"
+  },
+  {
+   "id": "8vhl",
+   "pdb_id": "8VHL",
+   "chain": "A",
+   "release_date": "2024-04-03",
+   "resolution": 1.93,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 369,
+   "length_modeled": 355,
+   "frac_modeled": 0.962,
+   "description": "Dihydroorotate dehydrogenase (quinone), mitochondrial",
+   "cif": "data/validation/cif/8vhl.cif",
+   "yaml": "validation/yaml/8vhl.yaml"
+  }
+ ],
+ "v66_extension": {
+  "seed": 1,
+  "buckets": {
+   "60-120": 8,
+   "120-200": 11,
+   "200-300": 8,
+   "300-500": 3
+  },
+  "n_candidates": 9041,
+  "n_examined": 350,
+  "procedure": "(no hand picking):\n  1. Run the round-1 RCSB query with only the size range changed; save the candidate ids (RCSB order) in validation/.\n  2. Permute the SORTED candidate ids with random.Random(seed).shuffle.\n  3. Walk the permutation in chunks of 50 (GraphQL metadata + mmCIF into the pool dir + gemmi stats), accept an entry if it\n     passes the post-filters, falls in a still-open size bucket, and has a UniProt accession not used yet.\n     Stop when all buckets are full. Every examined entry is logged with its verdict.\n  stage v36: seed 0, bucket 380-500 x 6, exclusion set = the 30 cases of validation/manifest_all.json.\n  stage v66: seed 1, buckets matching V30's size spread (8 x 60-120, 11 x 120-200, 8 x 200-300, 3 x 300-500; the last bucket\n             is widened from V30's 300-400 to 300-500 because V36 now covers the headline size), exclusion set = V36.",
+  "uniprot": {
+   "9HK0": [
+    "Q9Y603"
+   ],
+   "8YK7": [
+    "A0A2T5Q5G6"
+   ],
+   "9EN7": [
+    "P48809"
+   ],
+   "10XB": [
+    "U5EFM3"
+   ],
+   "8H1E": [
+    "O67518"
+   ],
+   "8PX2": [
+    "P25440"
+   ],
+   "8QAZ": [
+    "P55201"
+   ],
+   "7ILX": [
+    "P0DTC9"
+   ],
+   "9SMC": [
+    "P00698"
+   ],
+   "7HYJ": [
+    "Q65900"
+   ],
+   "9KEZ": [
+    "Q13526"
+   ],
+   "9GN8": [
+    "Q9Y3C8"
+   ],
+   "9HIN": [
+    "Q9C029"
+   ],
+   "9VOD": [
+    "P02794"
+   ],
+   "8FPW": [
+    "P61586"
+   ],
+   "8EDY": [
+    "P01116"
+   ],
+   "27AE": [
+    "Q8TZW3"
+   ],
+   "8STH": [
+    "Q86WV6"
+   ],
+   "9RWE": [
+    "A0A376FVY3"
+   ],
+   "9PCT": [
+    "P00761"
+   ],
+   "9FSE": [
+    "Q01974"
+   ],
+   "9ZJQ": [
+    "P07288"
+   ],
+   "9KIW": [
+    "P00918"
+   ],
+   "9W2E": [
+    "P00808"
+   ],
+   "9TMX": [
+    "P9WI83"
+   ],
+   "8C09": [
+    "O60674"
+   ],
+   "8J5X": [
+    "P04629"
+   ],
+   "9QEK": [
+    "P08922"
+   ],
+   "8GLR": [
+    "Q8ZJX7"
+   ],
+   "8VHL": [
+    "Q02127"
+   ]
+  },
+  "cluster30": {
+   "9HK0": null,
+   "8YK7": null,
+   "9EN7": null,
+   "10XB": null,
+   "8H1E": null,
+   "8PX2": null,
+   "8QAZ": null,
+   "7ILX": null,
+   "9SMC": null,
+   "7HYJ": null,
+   "9KEZ": null,
+   "9GN8": null,
+   "9HIN": null,
+   "9VOD": null,
+   "8FPW": null,
+   "8EDY": null,
+   "27AE": null,
+   "8STH": null,
+   "9RWE": null,
+   "9PCT": null,
+   "9FSE": null,
+   "9ZJQ": null,
+   "9KIW": null,
+   "9W2E": null,
+   "9TMX": null,
+   "8C09": null,
+   "8J5X": null,
+   "9QEK": null,
+   "8GLR": null,
+   "8VHL": null
+  },
+  "size_bucket": {
+   "9HK0": "60-120",
+   "8YK7": "60-120",
+   "9EN7": "60-120",
+   "10XB": "60-120",
+   "8H1E": "60-120",
+   "8PX2": "60-120",
+   "8QAZ": "60-120",
+   "7ILX": "60-120",
+   "9SMC": "120-200",
+   "7HYJ": "120-200",
+   "9KEZ": "120-200",
+   "9GN8": "120-200",
+   "9HIN": "120-200",
+   "9VOD": "120-200",
+   "8FPW": "120-200",
+   "8EDY": "120-200",
+   "27AE": "120-200",
+   "8STH": "120-200",
+   "9RWE": "120-200",
+   "9PCT": "200-300",
+   "9FSE": "200-300",
+   "9ZJQ": "200-300",
+   "9KIW": "200-300",
+   "9W2E": "200-300",
+   "9TMX": "200-300",
+   "8C09": "200-300",
+   "8J5X": "200-300",
+   "9QEK": "300-500",
+   "8GLR": "300-500",
+   "8VHL": "300-500"
+  },
+  "selection_log": [
+   {
+    "id": "9RDY",
+    "verdict": "reject: pre-filter",
+    "seqres_len": 353
+   },
+   {
+    "id": "9KIW",
+    "verdict": "ACCEPT 200-300",
+    "seqres_len": 260,
+    "uniprot": [
+     "P00918"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8FPW",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 183,
+    "uniprot": [
+     "P61586"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "7HYJ",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 144,
+    "uniprot": [
+     "Q65900"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8H1E",
+    "verdict": "ACCEPT 60-120",
+    "seqres_len": 102,
+    "uniprot": [
+     "O67518"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8SD9",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 260,
+    "uniprot": [
+     "P00918"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9KEZ",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 163,
+    "uniprot": [
+     "Q13526"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8GLR",
+    "verdict": "ACCEPT 300-500",
+    "seqres_len": 336,
+    "uniprot": [
+     "Q8ZJX7"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9QEK",
+    "verdict": "ACCEPT 300-500",
+    "seqres_len": 301,
+    "uniprot": [
+     "P08922"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8VHL",
+    "verdict": "ACCEPT 300-500",
+    "seqres_len": 369,
+    "uniprot": [
+     "Q02127"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9SGD",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 494
+   },
+   {
+    "id": "9JWE",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 266,
+    "uniprot": [
+     "P00918"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8WFW",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 444
+   },
+   {
+    "id": "8XQU",
+    "verdict": "reject: no UniProt accession",
+    "seqres_len": 145
+   },
+   {
+    "id": "9NZK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 309
+   },
+   {
+    "id": "8EDY",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 185,
+    "uniprot": [
+     "P01116"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9FUJ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 468
+   },
+   {
+    "id": "9KEY",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 163,
+    "uniprot": [
+     "Q13526"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9VOD",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 182,
+    "uniprot": [
+     "P02794"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8J5X",
+    "verdict": "ACCEPT 200-300",
+    "seqres_len": 299,
+    "uniprot": [
+     "P04629"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "7GET",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "9OWC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 443
+   },
+   {
+    "id": "8ORK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 460
+   },
+   {
+    "id": "9T9C",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 396
+   },
+   {
+    "id": "7H38",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 150,
+    "uniprot": [
+     "Q65900"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9RY6",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 170,
+    "uniprot": [
+     "P0DTD1"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9GGK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 364
+   },
+   {
+    "id": "8OK4",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 415
+   },
+   {
+    "id": "8JDS",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 471
+   },
+   {
+    "id": "8ETX",
+    "verdict": "reject: no UniProt accession",
+    "seqres_len": 281
+   },
+   {
+    "id": "9ZJQ",
+    "verdict": "ACCEPT 200-300",
+    "seqres_len": 249,
+    "uniprot": [
+     "P07288"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8QII",
+    "verdict": "reject: <=90% modeled",
+    "seqres_len": 138
+   },
+   {
+    "id": "9J27",
+    "verdict": "reject: <=90% modeled",
+    "seqres_len": 292
+   },
+   {
+    "id": "8AA7",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 400
+   },
+   {
+    "id": "8EU1",
+    "verdict": "reject: no UniProt accession",
+    "seqres_len": 281
+   },
+   {
+    "id": "9T29",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 343
+   },
+   {
+    "id": "9I1E",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 183,
+    "uniprot": [
+     "P02794"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8QKW",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 431
+   },
+   {
+    "id": "8X3H",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 332
+   },
+   {
+    "id": "9TMX",
+    "verdict": "ACCEPT 200-300",
+    "seqres_len": 284,
+    "uniprot": [
+     "P9WI83"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8ZI7",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 458
+   },
+   {
+    "id": "8OLA",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 260,
+    "uniprot": [
+     "P00918"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "7IIG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 330
+   },
+   {
+    "id": "28JG",
+    "verdict": "reject: <=90% modeled",
+    "seqres_len": 200
+   },
+   {
+    "id": "8XHY",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 323
+   },
+   {
+    "id": "8GAC",
+    "verdict": "reject: no UniProt accession",
+    "seqres_len": 106
+   },
+   {
+    "id": "9HVB",
+    "verdict": "reject: <=90% modeled",
+    "seqres_len": 256
+   },
+   {
+    "id": "9GN8",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 169,
+    "uniprot": [
+     "Q9Y3C8"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8XKP",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 375
+   },
+   {
+    "id": "9HK0",
+    "verdict": "ACCEPT 60-120",
+    "seqres_len": 76,
+    "uniprot": [
+     "Q9Y603"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8Z2Y",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 411
+   },
+   {
+    "id": "9HIN",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 175,
+    "uniprot": [
+     "Q9C029"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9RWE",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 197,
+    "uniprot": [
+     "A0A376FVY3"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8W4S",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 347
+   },
+   {
+    "id": "27AE",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 187,
+    "uniprot": [
+     "Q8TZW3"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9EWS",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 332
+   },
+   {
+    "id": "9PCT",
+    "verdict": "ACCEPT 200-300",
+    "seqres_len": 231,
+    "uniprot": [
+     "P00761"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9SMC",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 129,
+    "uniprot": [
+     "P00698"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8GJ8",
+    "verdict": "reject: <=90% modeled",
+    "seqres_len": 288
+   },
+   {
+    "id": "8QFJ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 350
+   },
+   {
+    "id": "8STH",
+    "verdict": "ACCEPT 120-200",
+    "seqres_len": 187,
+    "uniprot": [
+     "Q86WV6"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8PGY",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 266,
+    "uniprot": [
+     "Q9XAY4"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "7GFG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "9YL6",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 341
+   },
+   {
+    "id": "9P2H",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 424
+   },
+   {
+    "id": "8A3A",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 159
+   },
+   {
+    "id": "9R2K",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 189
+   },
+   {
+    "id": "9XG0",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "9CPM",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 432
+   },
+   {
+    "id": "9D75",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 346
+   },
+   {
+    "id": "7HYG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 144
+   },
+   {
+    "id": "8U9V",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "7XPM",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 345
+   },
+   {
+    "id": "8C09",
+    "verdict": "ACCEPT 200-300",
+    "seqres_len": 289,
+    "uniprot": [
+     "O60674"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9W2E",
+    "verdict": "ACCEPT 200-300",
+    "seqres_len": 268,
+    "uniprot": [
+     "P00808"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9MAC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 317
+   },
+   {
+    "id": "8QAZ",
+    "verdict": "ACCEPT 60-120",
+    "seqres_len": 116,
+    "uniprot": [
+     "P55201"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "29RY",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 316
+   },
+   {
+    "id": "9RRC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 138
+   },
+   {
+    "id": "7GSX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 321
+   },
+   {
+    "id": "7GTS",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 321
+   },
+   {
+    "id": "13YF",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 467
+   },
+   {
+    "id": "9OZG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 406
+   },
+   {
+    "id": "9H3A",
+    "verdict": "reject: pre-filter",
+    "seqres_len": 227
+   },
+   {
+    "id": "9FSE",
+    "verdict": "ACCEPT 200-300",
+    "seqres_len": 238,
+    "uniprot": [
+     "Q01974"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8UF2",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 490
+   },
+   {
+    "id": "8I11",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 153
+   },
+   {
+    "id": "8BTX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 183
+   },
+   {
+    "id": "8POF",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 321
+   },
+   {
+    "id": "31YA",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 174
+   },
+   {
+    "id": "7GZZ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 170
+   },
+   {
+    "id": "8ISQ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 269
+   },
+   {
+    "id": "8AAM",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 340
+   },
+   {
+    "id": "9O7U",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 286
+   },
+   {
+    "id": "9DJ9",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 191
+   },
+   {
+    "id": "8JDR",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 471
+   },
+   {
+    "id": "9HX8",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 201
+   },
+   {
+    "id": "31AP",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 295
+   },
+   {
+    "id": "8ORX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 318
+   },
+   {
+    "id": "8HBK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "8XIG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 224
+   },
+   {
+    "id": "8YRU",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 283
+   },
+   {
+    "id": "9EN7",
+    "verdict": "ACCEPT 60-120",
+    "seqres_len": 90,
+    "uniprot": [
+     "P48809"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9HGW",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 280
+   },
+   {
+    "id": "9CYQ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 321
+   },
+   {
+    "id": "9DCX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 264
+   },
+   {
+    "id": "9WNZ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 310
+   },
+   {
+    "id": "9WVP",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 175
+   },
+   {
+    "id": "8SC7",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 330
+   },
+   {
+    "id": "9QIJ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 341
+   },
+   {
+    "id": "7ILX",
+    "verdict": "ACCEPT 60-120",
+    "seqres_len": 117,
+    "uniprot": [
+     "P0DTC9"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "10CX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 179
+   },
+   {
+    "id": "9I9O",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 169
+   },
+   {
+    "id": "9BQO",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "8PGJ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 266
+   },
+   {
+    "id": "9CS5",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 446
+   },
+   {
+    "id": "8YSM",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 348
+   },
+   {
+    "id": "8ZEI",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 454
+   },
+   {
+    "id": "9MLM",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 195
+   },
+   {
+    "id": "8WGG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 451
+   },
+   {
+    "id": "7IDH",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 116,
+    "uniprot": [
+     "P0DTD1"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8G0N",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 247
+   },
+   {
+    "id": "9B4R",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 169
+   },
+   {
+    "id": "7GE6",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "9CDM",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "9IAP",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 170
+   },
+   {
+    "id": "9FK4",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 379
+   },
+   {
+    "id": "8KHO",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 313
+   },
+   {
+    "id": "9LQD",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 125
+   },
+   {
+    "id": "9QVW",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 346
+   },
+   {
+    "id": "7HWH",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 144
+   },
+   {
+    "id": "7YMB",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 351
+   },
+   {
+    "id": "9E9N",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 150
+   },
+   {
+    "id": "9OD7",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 166
+   },
+   {
+    "id": "7IFE",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 330
+   },
+   {
+    "id": "9XEG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 290
+   },
+   {
+    "id": "8WDI",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 129
+   },
+   {
+    "id": "8V8Y",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 459
+   },
+   {
+    "id": "8RFV",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 348
+   },
+   {
+    "id": "8BP1",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 242
+   },
+   {
+    "id": "8TMT",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 282
+   },
+   {
+    "id": "8I15",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 417
+   },
+   {
+    "id": "8XF4",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 283
+   },
+   {
+    "id": "9LXQ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 275
+   },
+   {
+    "id": "8FTR",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 339
+   },
+   {
+    "id": "8UH8",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 302
+   },
+   {
+    "id": "9S40",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 297
+   },
+   {
+    "id": "8BAX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 300
+   },
+   {
+    "id": "36WN",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 468
+   },
+   {
+    "id": "9CJ0",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 170
+   },
+   {
+    "id": "9RF4",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 297
+   },
+   {
+    "id": "9RZL",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 129
+   },
+   {
+    "id": "7H2W",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 150
+   },
+   {
+    "id": "24CA",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 327
+   },
+   {
+    "id": "7GFJ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "8BCK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 241
+   },
+   {
+    "id": "8FSG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 129
+   },
+   {
+    "id": "8JCM",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "7IE4",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 116,
+    "uniprot": [
+     "P0DTD1"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9YL9",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 343
+   },
+   {
+    "id": "8P7R",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 332
+   },
+   {
+    "id": "9WGC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 445
+   },
+   {
+    "id": "7HNU",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 188
+   },
+   {
+    "id": "9OO9",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 295
+   },
+   {
+    "id": "8ZQF",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 214
+   },
+   {
+    "id": "9R4L",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 439
+   },
+   {
+    "id": "9S44",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 302
+   },
+   {
+    "id": "8TK3",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 183
+   },
+   {
+    "id": "8JJF",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 204
+   },
+   {
+    "id": "13EA",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 210
+   },
+   {
+    "id": "9FQE",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 301
+   },
+   {
+    "id": "8SO2",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 487
+   },
+   {
+    "id": "9H9S",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 237
+   },
+   {
+    "id": "9F64",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 188
+   },
+   {
+    "id": "9VOQ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 242
+   },
+   {
+    "id": "8FT0",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 129
+   },
+   {
+    "id": "9HUC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 437
+   },
+   {
+    "id": "9V79",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 302
+   },
+   {
+    "id": "9Q5E",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 209
+   },
+   {
+    "id": "9TOS",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 129
+   },
+   {
+    "id": "9ENG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 246
+   },
+   {
+    "id": "7INE",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 433
+   },
+   {
+    "id": "9CE4",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 268
+   },
+   {
+    "id": "7IHK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 330
+   },
+   {
+    "id": "8Q77",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 364
+   },
+   {
+    "id": "13XY",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 467
+   },
+   {
+    "id": "9MJZ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 443
+   },
+   {
+    "id": "8FPN",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 129
+   },
+   {
+    "id": "9SIK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 371
+   },
+   {
+    "id": "7GB2",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "8X74",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 353
+   },
+   {
+    "id": "7GTN",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 321
+   },
+   {
+    "id": "8RUS",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 129
+   },
+   {
+    "id": "9FX5",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 235
+   },
+   {
+    "id": "8PQ4",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 143
+   },
+   {
+    "id": "8PX2",
+    "verdict": "ACCEPT 60-120",
+    "seqres_len": 115,
+    "uniprot": [
+     "P25440"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8P7P",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 331
+   },
+   {
+    "id": "7FUK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 362
+   },
+   {
+    "id": "13QV",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 354
+   },
+   {
+    "id": "7HBT",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 237
+   },
+   {
+    "id": "9WQX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 311
+   },
+   {
+    "id": "8OX3",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 318
+   },
+   {
+    "id": "8RWH",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 449
+   },
+   {
+    "id": "8QVE",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 495
+   },
+   {
+    "id": "7GTB",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 321
+   },
+   {
+    "id": "9D44",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 480
+   },
+   {
+    "id": "8W1D",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 177
+   },
+   {
+    "id": "9PVQ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 261
+   },
+   {
+    "id": "9GXC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 264
+   },
+   {
+    "id": "8T9V",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 258
+   },
+   {
+    "id": "9MIM",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 410
+   },
+   {
+    "id": "7IFK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 330
+   },
+   {
+    "id": "8PFY",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 129
+   },
+   {
+    "id": "7GYA",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 394
+   },
+   {
+    "id": "8Q1V",
+    "verdict": "reject: <=90% modeled",
+    "seqres_len": 93
+   },
+   {
+    "id": "8RAA",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 152
+   },
+   {
+    "id": "13ZQ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 467
+   },
+   {
+    "id": "9GU7",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 260
+   },
+   {
+    "id": "8BC5",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 241
+   },
+   {
+    "id": "7ISL",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 116,
+    "uniprot": [
+     "P0DTD1"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9EVN",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 349
+   },
+   {
+    "id": "9FTX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 279
+   },
+   {
+    "id": "7GSG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 321
+   },
+   {
+    "id": "7IBC",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 116,
+    "uniprot": [
+     "P0DTD1"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "26RW",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 170
+   },
+   {
+    "id": "9SZN",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 353
+   },
+   {
+    "id": "9TXC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 163
+   },
+   {
+    "id": "7IBU",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 116,
+    "uniprot": [
+     "P0DTD1"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9LT5",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 363
+   },
+   {
+    "id": "9OJG",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "36WJ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 468
+   },
+   {
+    "id": "9C9E",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 244
+   },
+   {
+    "id": "7GEL",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "9ULH",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 357
+   },
+   {
+    "id": "8CDT",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 123
+   },
+   {
+    "id": "9QR5",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 362
+   },
+   {
+    "id": "8QAL",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 127
+   },
+   {
+    "id": "9GFX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 260
+   },
+   {
+    "id": "9FMH",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 322
+   },
+   {
+    "id": "12NY",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 323
+   },
+   {
+    "id": "8UDO",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "9DG7",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 383
+   },
+   {
+    "id": "9JZZ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 334
+   },
+   {
+    "id": "8GZI",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 407
+   },
+   {
+    "id": "8J5G",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 247
+   },
+   {
+    "id": "8OZ1",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 396
+   },
+   {
+    "id": "8ZNU",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 225
+   },
+   {
+    "id": "9T6V",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 154
+   },
+   {
+    "id": "10EM",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 376
+   },
+   {
+    "id": "9KVW",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 288
+   },
+   {
+    "id": "32HC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 197
+   },
+   {
+    "id": "8YJC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 225
+   },
+   {
+    "id": "9IA8",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 169
+   },
+   {
+    "id": "9GMP",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 285
+   },
+   {
+    "id": "9PF3",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 457
+   },
+   {
+    "id": "9FW7",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 200
+   },
+   {
+    "id": "9HOK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 258
+   },
+   {
+    "id": "9WB6",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 358
+   },
+   {
+    "id": "7Y2U",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 260
+   },
+   {
+    "id": "9FMI",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 322
+   },
+   {
+    "id": "8YK7",
+    "verdict": "ACCEPT 60-120",
+    "seqres_len": 80,
+    "uniprot": [
+     "A0A2T5Q5G6"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9I79",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 388
+   },
+   {
+    "id": "8BBA",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 331
+   },
+   {
+    "id": "9ATD",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 313
+   },
+   {
+    "id": "8YSR",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 349
+   },
+   {
+    "id": "7H9Y",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 237
+   },
+   {
+    "id": "9D2P",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 380
+   },
+   {
+    "id": "9QBC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 124
+   },
+   {
+    "id": "9TAS",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 126
+   },
+   {
+    "id": "7GAK",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 121
+   },
+   {
+    "id": "9HY3",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 269
+   },
+   {
+    "id": "9D9V",
+    "verdict": "reject: <=90% modeled",
+    "seqres_len": 79
+   },
+   {
+    "id": "9NTX",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 492
+   },
+   {
+    "id": "9FSH",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 499
+   },
+   {
+    "id": "8W4D",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 233
+   },
+   {
+    "id": "7GAR",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 121
+   },
+   {
+    "id": "8SGU",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 205
+   },
+   {
+    "id": "9XBZ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 170
+   },
+   {
+    "id": "8CHY",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 292
+   },
+   {
+    "id": "9KIQ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 260
+   },
+   {
+    "id": "7GH5",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "8Y4U",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 351
+   },
+   {
+    "id": "8UAB",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "7GBL",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 306
+   },
+   {
+    "id": "8OYF",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 323
+   },
+   {
+    "id": "7IM0",
+    "verdict": "reject: UniProt/cluster30 already used",
+    "seqres_len": 117,
+    "uniprot": [
+     "P0DTC9"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8UPB",
+    "verdict": "reject: no UniProt accession",
+    "seqres_len": 64
+   },
+   {
+    "id": "8WBU",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 391
+   },
+   {
+    "id": "8RVI",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 444
+   },
+   {
+    "id": "9FSA",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 157
+   },
+   {
+    "id": "11IH",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 488
+   },
+   {
+    "id": "8TF5",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 436
+   },
+   {
+    "id": "8JVC",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 177
+   },
+   {
+    "id": "9HHA",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 132
+   },
+   {
+    "id": "8X8S",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 248
+   },
+   {
+    "id": "8B96",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 127
+   },
+   {
+    "id": "9AWP",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 223
+   },
+   {
+    "id": "9PAQ",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 260
+   },
+   {
+    "id": "8IXT",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 427
+   },
+   {
+    "id": "8QB6",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 324
+   },
+   {
+    "id": "9M2Y",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 157
+   },
+   {
+    "id": "8INA",
+    "verdict": "skip: bucket full/out of range",
+    "seqres_len": 474
+   },
+   {
+    "id": "10XB",
+    "verdict": "ACCEPT 60-120",
+    "seqres_len": 99,
+    "uniprot": [
+     "U5EFM3"
+    ],
+    "cluster30": null
+   }
+  ]
+ }
+}

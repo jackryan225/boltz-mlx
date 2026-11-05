@@ -1,0 +1,892 @@
+{
+ "release_cutoff": "initial release date >= 2023-07-01",
+ "selection_notes": "Candidates: RCSB search (query below) -> 5156 entries; seeded random sample (seed 0, n=300) -> metadata via data.rcsb.org GraphQL + mmCIF via files.rcsb.org; post-filters on the mmCIF (gemmi): protein, no nonstandard residues, 60-300 modeled residues, >90% of SEQRES modeled, CA present for all modeled residues, no X/U in sequence (231/300 pass). Final 10 chosen by hand from the passing pool for fold/size diversity. Release cutoff 2023-07-01: the Boltz-2 repo docs (README/docs) state no training cutoff; the paper's cutoff (2023-06-01, from memory) is earlier, so 2023-07-01 is the later of the two. || EXTENSION (20 more cases, see manifest_extra.json): 20 additional cases drawn from the same filtered pool as manifest.json (RCSB search query, X-ray <= 2.5 A, initial release >= 2023-07-01, one polymer entity / one protein chain, then mmCIF post-filters: protein, no nonstandard residues, > 90% of SEQRES modeled, CA present for every modeled residue, no X/U in sequence). Sizes <= 300 come from the original seeded sample (validation/pool.json, seed 0, n=300; 221 passing, 10 already used excluded). That pool has at most one 300-residue entry, so the 300-400 bucket re-runs the identical query with only the size range changed (validation/query_300_400.json -> 2800 entries), seeded sample (seed 0, n=200, tools/validation/extend_pool.py) with the same post-filters (142 pass; validation/pool_300_400.json). Selection by hand for fold/size diversity: 5 x 60-120, 7 x 120-200, 5 x 200-300, 3 x 300-400 residues (SEQRES length). Redundancy control: UniProt accessions (data.rcsb.org, validation/uniprot.json) are pairwise distinct across all 30 cases (incl. the original 10), no two cases share a description keyword, and from the many same-protein series in the pool (fragment-screen / group depositions of nsp1, Mpro, endothiapepsin, carbonic anhydrase II, lysozyme, ...) at most one entry was considered. The original 10 are unchanged. There is no torch reference for these cases (data/<id>/ref does not exist); score against the experimental mmCIF. || V36 EXTENSION (round 2): 6 more chains of 380-500 residues, same RCSB query/post-filters with the size range changed (validation/query_380_500.json), seed-0 permutation of the sorted candidate ids, distinct UniProt from the 30 existing cases and from each other. See v36_extension.",
+ "query_endpoint": "https://search.rcsb.org/rcsbsearch/v2/query",
+ "query": {
+  "query": {
+   "type": "group",
+   "logical_operator": "and",
+   "nodes": [
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_accession_info.initial_release_date",
+      "operator": "greater_or_equal",
+      "value": "2023-07-01T00:00:00Z"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "exptl.method",
+      "operator": "exact_match",
+      "value": "X-RAY DIFFRACTION"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.resolution_combined",
+      "operator": "less_or_equal",
+      "value": 2.5
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count_protein",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+      "operator": "range",
+      "value": {
+       "from": 60,
+       "to": 300,
+       "include_lower": true,
+       "include_upper": true
+      }
+     }
+    }
+   ]
+  },
+  "return_type": "entry",
+  "request_options": {
+   "paginate": {
+    "start": 0,
+    "rows": 10000
+   },
+   "sort": [
+    {
+     "sort_by": "rcsb_accession_info.initial_release_date",
+     "direction": "asc"
+    }
+   ]
+  }
+ },
+ "sample": {
+  "seed": 0,
+  "n": 300,
+  "script": "tools/validation/filter_cases.py"
+ },
+ "cases": [
+  {
+   "id": "9eyb",
+   "pdb_id": "9EYB",
+   "chain": "AAA",
+   "release_date": "2025-08-06",
+   "resolution": 1.337,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 64,
+   "length_modeled": 64,
+   "frac_modeled": 1.0,
+   "description": "Spectrin alpha chain, non-erythrocytic 1",
+   "cif": "data/validation/cif/9eyb.cif",
+   "yaml": "validation/yaml/9eyb.yaml"
+  },
+  {
+   "id": "8j9r",
+   "pdb_id": "8J9R",
+   "chain": "A",
+   "release_date": "2023-12-06",
+   "resolution": 1.65,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 74,
+   "length_modeled": 72,
+   "frac_modeled": 0.973,
+   "description": "E3 ubiquitin-protein ligase UBR4",
+   "cif": "data/validation/cif/8j9r.cif",
+   "yaml": "validation/yaml/8j9r.yaml"
+  },
+  {
+   "id": "8fj8",
+   "pdb_id": "8FJ8",
+   "chain": "A",
+   "release_date": "2024-02-07",
+   "resolution": 2.17,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 90,
+   "length_modeled": 90,
+   "frac_modeled": 1.0,
+   "description": "Protein S100-B",
+   "cif": "data/validation/cif/8fj8.cif",
+   "yaml": "validation/yaml/8fj8.yaml"
+  },
+  {
+   "id": "9n3a",
+   "pdb_id": "9N3A",
+   "chain": "A",
+   "release_date": "2026-09-09",
+   "resolution": 1.55,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 98,
+   "length_modeled": 93,
+   "frac_modeled": 0.949,
+   "description": "CRISPR-associated DinG",
+   "cif": "data/validation/cif/9n3a.cif",
+   "yaml": "validation/yaml/9n3a.yaml"
+  },
+  {
+   "id": "8oxk",
+   "pdb_id": "8OXK",
+   "chain": "A",
+   "release_date": "2023-08-16",
+   "resolution": 1.37,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 99,
+   "length_modeled": 94,
+   "frac_modeled": 0.949,
+   "description": "CSEP0141 putative effector protein",
+   "cif": "data/validation/cif/8oxk.cif",
+   "yaml": "validation/yaml/8oxk.yaml"
+  },
+  {
+   "id": "9b26",
+   "pdb_id": "9B26",
+   "chain": "A",
+   "release_date": "2024-12-04",
+   "resolution": 1.65,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 109,
+   "length_modeled": 109,
+   "frac_modeled": 1.0,
+   "description": "Parvalbumin beta",
+   "cif": "data/validation/cif/9b26.cif",
+   "yaml": "validation/yaml/9b26.yaml"
+  },
+  {
+   "id": "9z0m",
+   "pdb_id": "9Z0M",
+   "chain": "A",
+   "release_date": "2025-11-19",
+   "resolution": 1.7,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 113,
+   "length_modeled": 109,
+   "frac_modeled": 0.965,
+   "description": "CMRF35-like molecule 6",
+   "cif": "data/validation/cif/9z0m.cif",
+   "yaml": "validation/yaml/9z0m.yaml"
+  },
+  {
+   "id": "7ire",
+   "pdb_id": "7IRE",
+   "chain": "A",
+   "release_date": "2026-01-14",
+   "resolution": 1.21,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 116,
+   "length_modeled": 112,
+   "frac_modeled": 0.966,
+   "description": "Host translation inhibitor nsp1",
+   "cif": "data/validation/cif/7ire.cif",
+   "yaml": "validation/yaml/7ire.yaml"
+  },
+  {
+   "id": "8k9n",
+   "pdb_id": "8K9N",
+   "chain": "A",
+   "release_date": "2024-02-14",
+   "resolution": 0.86,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 126,
+   "length_modeled": 125,
+   "frac_modeled": 0.992,
+   "description": "Pseudoazurin",
+   "cif": "data/validation/cif/8k9n.cif",
+   "yaml": "validation/yaml/8k9n.yaml"
+  },
+  {
+   "id": "8chr",
+   "pdb_id": "8CHR",
+   "chain": "A",
+   "release_date": "2023-09-06",
+   "resolution": 1.1,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 128,
+   "length_modeled": 128,
+   "frac_modeled": 1.0,
+   "description": "Peptidyl-prolyl cis-trans isomerase FKBP5",
+   "cif": "data/validation/cif/8chr.cif",
+   "yaml": "validation/yaml/8chr.yaml"
+  },
+  {
+   "id": "8ti5",
+   "pdb_id": "8TI5",
+   "chain": "A",
+   "release_date": "2024-05-08",
+   "resolution": 1.15,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 134,
+   "length_modeled": 131,
+   "frac_modeled": 0.978,
+   "description": "Profilin",
+   "cif": "data/validation/cif/8ti5.cif",
+   "yaml": "validation/yaml/8ti5.yaml"
+  },
+  {
+   "id": "8rmt",
+   "pdb_id": "8RMT",
+   "chain": "A",
+   "release_date": "2025-01-29",
+   "resolution": 1.25,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 139,
+   "length_modeled": 138,
+   "frac_modeled": 0.993,
+   "description": "Galectin-3",
+   "cif": "data/validation/cif/8rmt.cif",
+   "yaml": "validation/yaml/8rmt.yaml"
+  },
+  {
+   "id": "8t98",
+   "pdb_id": "8T98",
+   "chain": "A",
+   "release_date": "2023-11-15",
+   "resolution": 1.3,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 148,
+   "length_modeled": 135,
+   "frac_modeled": 0.912,
+   "description": "Diphosphoinositol polyphosphate phosphohydrolase 1",
+   "cif": "data/validation/cif/8t98.cif",
+   "yaml": "validation/yaml/8t98.yaml"
+  },
+  {
+   "id": "9dti",
+   "pdb_id": "9DTI",
+   "chain": "A",
+   "release_date": "2025-10-15",
+   "resolution": 1.681,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 154,
+   "length_modeled": 154,
+   "frac_modeled": 1.0,
+   "description": "Myoglobin",
+   "cif": "data/validation/cif/9dti.cif",
+   "yaml": "validation/yaml/9dti.yaml"
+  },
+  {
+   "id": "9f9u",
+   "pdb_id": "9F9U",
+   "chain": "A",
+   "release_date": "2024-10-02",
+   "resolution": 1.68,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 170,
+   "length_modeled": 170,
+   "frac_modeled": 1.0,
+   "description": "Transcription elongation factor NusA",
+   "cif": "data/validation/cif/9f9u.cif",
+   "yaml": "validation/yaml/9f9u.yaml"
+  },
+  {
+   "id": "8ta1",
+   "pdb_id": "8TA1",
+   "chain": "A",
+   "release_date": "2024-08-28",
+   "resolution": 1.5,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 173,
+   "length_modeled": 163,
+   "frac_modeled": 0.942,
+   "description": "Dihydrofolate reductase",
+   "cif": "data/validation/cif/8ta1.cif",
+   "yaml": "validation/yaml/8ta1.yaml"
+  },
+  {
+   "id": "9eqb",
+   "pdb_id": "9EQB",
+   "chain": "A",
+   "release_date": "2025-04-16",
+   "resolution": 1.36,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 174,
+   "length_modeled": 167,
+   "frac_modeled": 0.96,
+   "description": "Ferritin, mitochondrial",
+   "cif": "data/validation/cif/9eqb.cif",
+   "yaml": "validation/yaml/9eqb.yaml"
+  },
+  {
+   "id": "8jqu",
+   "pdb_id": "8JQU",
+   "chain": "A",
+   "release_date": "2024-06-19",
+   "resolution": 1.798,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 175,
+   "length_modeled": 164,
+   "frac_modeled": 0.937,
+   "description": "Rab5a",
+   "cif": "data/validation/cif/8jqu.cif",
+   "yaml": "validation/yaml/8jqu.yaml"
+  },
+  {
+   "id": "8x5s",
+   "pdb_id": "8X5S",
+   "chain": "A",
+   "release_date": "2024-11-20",
+   "resolution": 1.726,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 176,
+   "length_modeled": 168,
+   "frac_modeled": 0.955,
+   "description": "Shikimate kinase",
+   "cif": "data/validation/cif/8x5s.cif",
+   "yaml": "validation/yaml/8x5s.yaml"
+  },
+  {
+   "id": "9fcl",
+   "pdb_id": "9FCL",
+   "chain": "A",
+   "release_date": "2024-08-21",
+   "resolution": 1.75,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 215,
+   "length_modeled": 212,
+   "frac_modeled": 0.986,
+   "description": "SAM-dependent methyltransferase",
+   "cif": "data/validation/cif/9fcl.cif",
+   "yaml": "validation/yaml/9fcl.yaml"
+  },
+  {
+   "id": "7h67",
+   "pdb_id": "7H67",
+   "chain": "A",
+   "release_date": "2025-03-05",
+   "resolution": 1.35,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 226,
+   "length_modeled": 223,
+   "frac_modeled": 0.987,
+   "description": "Chymase",
+   "cif": "data/validation/cif/7h67.cif",
+   "yaml": "validation/yaml/7h67.yaml"
+  },
+  {
+   "id": "8tsz",
+   "pdb_id": "8TSZ",
+   "chain": "A",
+   "release_date": "2023-09-20",
+   "resolution": 1.1,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 231,
+   "length_modeled": 226,
+   "frac_modeled": 0.978,
+   "description": "Isonitrile hydratase InhA",
+   "cif": "data/validation/cif/8tsz.cif",
+   "yaml": "validation/yaml/8tsz.yaml"
+  },
+  {
+   "id": "8c0m",
+   "pdb_id": "8C0M",
+   "chain": "A",
+   "release_date": "2023-12-27",
+   "resolution": 1.2,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 234,
+   "length_modeled": 228,
+   "frac_modeled": 0.974,
+   "description": "Alginate lyase",
+   "cif": "data/validation/cif/8c0m.cif",
+   "yaml": "validation/yaml/8c0m.yaml"
+  },
+  {
+   "id": "8ywo",
+   "pdb_id": "8YWO",
+   "chain": "A",
+   "release_date": "2024-05-08",
+   "resolution": 1.58,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 240,
+   "length_modeled": 240,
+   "frac_modeled": 1.0,
+   "description": "(S)-2-haloacid dehalogenase",
+   "cif": "data/validation/cif/8ywo.cif",
+   "yaml": "validation/yaml/8ywo.yaml"
+  },
+  {
+   "id": "9rfg",
+   "pdb_id": "9RFG",
+   "chain": "A",
+   "release_date": "2026-05-27",
+   "resolution": 1.15,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 241,
+   "length_modeled": 234,
+   "frac_modeled": 0.971,
+   "description": "Beta-lactamase VIM-1",
+   "cif": "data/validation/cif/9rfg.cif",
+   "yaml": "validation/yaml/9rfg.yaml"
+  },
+  {
+   "id": "9ths",
+   "pdb_id": "9THS",
+   "chain": "A",
+   "release_date": "2025-12-17",
+   "resolution": 1.54,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 249,
+   "length_modeled": 249,
+   "frac_modeled": 1.0,
+   "description": "Ascorbate peroxidase",
+   "cif": "data/validation/cif/9ths.cif",
+   "yaml": "validation/yaml/9ths.yaml"
+  },
+  {
+   "id": "9m24",
+   "pdb_id": "9M24",
+   "chain": "A",
+   "release_date": "2025-10-29",
+   "resolution": 1.57,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 293,
+   "length_modeled": 285,
+   "frac_modeled": 0.973,
+   "description": "Kelch-like ECH-associated protein 1",
+   "cif": "data/validation/cif/9m24.cif",
+   "yaml": "validation/yaml/9m24.yaml"
+  },
+  {
+   "id": "8vcw",
+   "pdb_id": "8VCW",
+   "chain": "A",
+   "release_date": "2024-01-24",
+   "resolution": 1.35,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 327,
+   "length_modeled": 327,
+   "frac_modeled": 1.0,
+   "description": "Biotin synthase",
+   "cif": "data/validation/cif/8vcw.cif",
+   "yaml": "validation/yaml/8vcw.yaml"
+  },
+  {
+   "id": "9g8v",
+   "pdb_id": "9G8V",
+   "chain": "A",
+   "release_date": "2025-08-06",
+   "resolution": 1.637,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 356,
+   "length_modeled": 356,
+   "frac_modeled": 1.0,
+   "description": "Alkaline serine protease",
+   "cif": "data/validation/cif/9g8v.cif",
+   "yaml": "validation/yaml/9g8v.yaml"
+  },
+  {
+   "id": "8jv3",
+   "pdb_id": "8JV3",
+   "chain": "A",
+   "release_date": "2024-07-03",
+   "resolution": 1.41,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 361,
+   "length_modeled": 360,
+   "frac_modeled": 0.997,
+   "description": "Spermidine/putrescine-binding periplasmic protein",
+   "cif": "data/validation/cif/8jv3.cif",
+   "yaml": "validation/yaml/8jv3.yaml"
+  },
+  {
+   "id": "9y35",
+   "pdb_id": "9Y35",
+   "chain": "A",
+   "release_date": "2026-09-09",
+   "resolution": 2.2,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 404,
+   "length_modeled": 395,
+   "frac_modeled": 0.978,
+   "description": "Biflaviolin synthase CYP158A2",
+   "cif": "data/validation/cif/9y35.cif",
+   "yaml": "validation/yaml/9y35.yaml"
+  },
+  {
+   "id": "8x3e",
+   "pdb_id": "8X3E",
+   "chain": "A",
+   "release_date": "2024-08-14",
+   "resolution": 2.5,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 424,
+   "length_modeled": 424,
+   "frac_modeled": 1.0,
+   "description": "Taxadiene 5-alpha hydroxylase",
+   "cif": "data/validation/cif/8x3e.cif",
+   "yaml": "validation/yaml/8x3e.yaml"
+  },
+  {
+   "id": "13xs",
+   "pdb_id": "13XS",
+   "chain": "A",
+   "release_date": "2026-03-18",
+   "resolution": 1.34,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 467,
+   "length_modeled": 457,
+   "frac_modeled": 0.979,
+   "description": "3Dpol RNA Dependent RNA Polymerase",
+   "cif": "data/validation/cif/13xs.cif",
+   "yaml": "validation/yaml/13xs.yaml"
+  },
+  {
+   "id": "8jdp",
+   "pdb_id": "8JDP",
+   "chain": "A",
+   "release_date": "2023-10-18",
+   "resolution": 1.6,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 471,
+   "length_modeled": 455,
+   "frac_modeled": 0.966,
+   "description": "Probable D-lactate dehydrogenase, mitochondrial",
+   "cif": "data/validation/cif/8jdp.cif",
+   "yaml": "validation/yaml/8jdp.yaml"
+  },
+  {
+   "id": "9ns4",
+   "pdb_id": "9NS4",
+   "chain": "A",
+   "release_date": "2026-05-13",
+   "resolution": 2.1,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 487,
+   "length_modeled": 461,
+   "frac_modeled": 0.947,
+   "description": "tRNA nucleotidyltransferase cca2",
+   "cif": "data/validation/cif/9ns4.cif",
+   "yaml": "validation/yaml/9ns4.yaml"
+  },
+  {
+   "id": "9ssd",
+   "pdb_id": "9SSD",
+   "chain": "A",
+   "release_date": "2026-02-18",
+   "resolution": 1.51,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 494,
+   "length_modeled": 470,
+   "frac_modeled": 0.951,
+   "description": "Penicillin-binding protein 1B",
+   "cif": "data/validation/cif/9ssd.cif",
+   "yaml": "validation/yaml/9ssd.yaml"
+  }
+ ],
+ "query_300_400": {
+  "query": {
+   "type": "group",
+   "logical_operator": "and",
+   "nodes": [
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_accession_info.initial_release_date",
+      "operator": "greater_or_equal",
+      "value": "2023-07-01T00:00:00Z"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "exptl.method",
+      "operator": "exact_match",
+      "value": "X-RAY DIFFRACTION"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.resolution_combined",
+      "operator": "less_or_equal",
+      "value": 2.5
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count_protein",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+      "operator": "range",
+      "value": {
+       "from": 300,
+       "to": 400,
+       "include_lower": true,
+       "include_upper": true
+      }
+     }
+    }
+   ]
+  },
+  "return_type": "entry",
+  "request_options": {
+   "paginate": {
+    "start": 0,
+    "rows": 10000
+   },
+   "sort": [
+    {
+     "sort_by": "rcsb_accession_info.initial_release_date",
+     "direction": "asc"
+    }
+   ]
+  }
+ },
+ "query_380_500": {
+  "query": {
+   "type": "group",
+   "logical_operator": "and",
+   "nodes": [
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_accession_info.initial_release_date",
+      "operator": "greater_or_equal",
+      "value": "2023-07-01T00:00:00Z"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "exptl.method",
+      "operator": "exact_match",
+      "value": "X-RAY DIFFRACTION"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.resolution_combined",
+      "operator": "less_or_equal",
+      "value": 2.5
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count_protein",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+      "operator": "range",
+      "value": {
+       "from": 380,
+       "to": 500,
+       "include_lower": true,
+       "include_upper": true
+      }
+     }
+    }
+   ]
+  },
+  "return_type": "entry",
+  "request_options": {
+   "paginate": {
+    "start": 0,
+    "rows": 10000
+   },
+   "sort": [
+    {
+     "sort_by": "rcsb_accession_info.initial_release_date",
+     "direction": "asc"
+    }
+   ]
+  }
+ },
+ "v36_extension": {
+  "seed": 0,
+  "buckets": {
+   "380-500": 6
+  },
+  "n_candidates": 1432,
+  "n_examined": 50,
+  "procedure": "(no hand picking):\n  1. Run the round-1 RCSB query with only the size range changed; save the candidate ids (RCSB order) in validation/.\n  2. Permute the SORTED candidate ids with random.Random(seed).shuffle.\n  3. Walk the permutation in chunks of 50 (GraphQL metadata + mmCIF into the pool dir + gemmi stats), accept an entry if it\n     passes the post-filters, falls in a still-open size bucket, and has a UniProt accession not used yet.\n     Stop when all buckets are full. Every examined entry is logged with its verdict.\n  stage v36: seed 0, bucket 380-500 x 6, exclusion set = the 30 cases of validation/manifest_all.json.\n  stage v66: seed 1, buckets matching V30's size spread (8 x 60-120, 11 x 120-200, 8 x 200-300, 3 x 300-500; the last bucket\n             is widened from V30's 300-400 to 300-500 because V36 now covers the headline size), exclusion set = V36.",
+  "uniprot": {
+   "9Y35": [
+    "Q9FCA6"
+   ],
+   "8X3E": [
+    "Q6WG30"
+   ],
+   "13XS": [
+    "F1T146"
+   ],
+   "8JDP": [
+    "Q7TNG8"
+   ],
+   "9NS4": [
+    "Q9Y7U9"
+   ],
+   "9SSD": [
+    "O70038"
+   ]
+  },
+  "cluster30": {
+   "9Y35": null,
+   "8X3E": null,
+   "13XS": null,
+   "8JDP": null,
+   "9NS4": null,
+   "9SSD": null
+  },
+  "size_bucket": {
+   "9Y35": "380-500",
+   "8X3E": "380-500",
+   "13XS": "380-500",
+   "8JDP": "380-500",
+   "9NS4": "380-500",
+   "9SSD": "380-500"
+  },
+  "selection_log": [
+   {
+    "id": "8X3E",
+    "verdict": "ACCEPT 380-500",
+    "seqres_len": 424,
+    "uniprot": [
+     "Q6WG30"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "8JDP",
+    "verdict": "ACCEPT 380-500",
+    "seqres_len": 471,
+    "uniprot": [
+     "Q7TNG8"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9NS4",
+    "verdict": "ACCEPT 380-500",
+    "seqres_len": 487,
+    "uniprot": [
+     "Q9Y7U9"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9Y35",
+    "verdict": "ACCEPT 380-500",
+    "seqres_len": 404,
+    "uniprot": [
+     "Q9FCA6"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "9SSD",
+    "verdict": "ACCEPT 380-500",
+    "seqres_len": 494,
+    "uniprot": [
+     "O70038"
+    ],
+    "cluster30": null
+   },
+   {
+    "id": "13XS",
+    "verdict": "ACCEPT 380-500",
+    "seqres_len": 467,
+    "uniprot": [
+     "F1T146"
+    ],
+    "cluster30": null
+   }
+  ]
+ },
+ "v36_new_case_ids": [
+  "9y35",
+  "8x3e",
+  "13xs",
+  "8jdp",
+  "9ns4",
+  "9ssd"
+ ]
+}

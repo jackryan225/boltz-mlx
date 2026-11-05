@@ -1,0 +1,598 @@
+{
+ "release_cutoff": "initial release date >= 2023-07-01",
+ "selection_notes": "20 additional cases drawn from the same filtered pool as manifest.json (RCSB search query, X-ray <= 2.5 A, initial release >= 2023-07-01, one polymer entity / one protein chain, then mmCIF post-filters: protein, no nonstandard residues, > 90% of SEQRES modeled, CA present for every modeled residue, no X/U in sequence). Sizes <= 300 come from the original seeded sample (validation/pool.json, seed 0, n=300; 221 passing, 10 already used excluded). That pool has at most one 300-residue entry, so the 300-400 bucket re-runs the identical query with only the size range changed (validation/query_300_400.json -> 2800 entries), seeded sample (seed 0, n=200, tools/validation/extend_pool.py) with the same post-filters (142 pass; validation/pool_300_400.json). Selection by hand for fold/size diversity: 5 x 60-120, 7 x 120-200, 5 x 200-300, 3 x 300-400 residues (SEQRES length). Redundancy control: UniProt accessions (data.rcsb.org, validation/uniprot.json) are pairwise distinct across all 30 cases (incl. the original 10), no two cases share a description keyword, and from the many same-protein series in the pool (fragment-screen / group depositions of nsp1, Mpro, endothiapepsin, carbonic anhydrase II, lysozyme, ...) at most one entry was considered. The original 10 are unchanged. There is no torch reference for these cases (data/<id>/ref does not exist); score against the experimental mmCIF.",
+ "size_bucket_counts": {
+  "60-120": 5,
+  "120-200": 7,
+  "200-300": 5,
+  "300-400": 3
+ },
+ "query_endpoint": "https://search.rcsb.org/rcsbsearch/v2/query",
+ "query": {
+  "query": {
+   "type": "group",
+   "logical_operator": "and",
+   "nodes": [
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_accession_info.initial_release_date",
+      "operator": "greater_or_equal",
+      "value": "2023-07-01T00:00:00Z"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "exptl.method",
+      "operator": "exact_match",
+      "value": "X-RAY DIFFRACTION"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.resolution_combined",
+      "operator": "less_or_equal",
+      "value": 2.5
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count_protein",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+      "operator": "range",
+      "value": {
+       "from": 60,
+       "to": 300,
+       "include_lower": true,
+       "include_upper": true
+      }
+     }
+    }
+   ]
+  },
+  "return_type": "entry",
+  "request_options": {
+   "paginate": {
+    "start": 0,
+    "rows": 10000
+   },
+   "sort": [
+    {
+     "sort_by": "rcsb_accession_info.initial_release_date",
+     "direction": "asc"
+    }
+   ]
+  }
+ },
+ "query_300_400": {
+  "query": {
+   "type": "group",
+   "logical_operator": "and",
+   "nodes": [
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_accession_info.initial_release_date",
+      "operator": "greater_or_equal",
+      "value": "2023-07-01T00:00:00Z"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "exptl.method",
+      "operator": "exact_match",
+      "value": "X-RAY DIFFRACTION"
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.resolution_combined",
+      "operator": "less_or_equal",
+      "value": 2.5
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.polymer_entity_count_protein",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_entity_instance_count",
+      "operator": "equals",
+      "value": 1
+     }
+    },
+    {
+     "type": "terminal",
+     "service": "text",
+     "parameters": {
+      "attribute": "rcsb_entry_info.deposited_polymer_monomer_count",
+      "operator": "range",
+      "value": {
+       "from": 300,
+       "to": 400,
+       "include_lower": true,
+       "include_upper": true
+      }
+     }
+    }
+   ]
+  },
+  "return_type": "entry",
+  "request_options": {
+   "paginate": {
+    "start": 0,
+    "rows": 10000
+   },
+   "sort": [
+    {
+     "sort_by": "rcsb_accession_info.initial_release_date",
+     "direction": "asc"
+    }
+   ]
+  }
+ },
+ "sample": {
+  "seed": 0,
+  "n": 300,
+  "script": "tools/validation/filter_cases.py",
+  "n_300_400": 200,
+  "script_300_400": "tools/validation/extend_pool.py"
+ },
+ "cases": [
+  {
+   "id": "9eyb",
+   "pdb_id": "9EYB",
+   "chain": "AAA",
+   "release_date": "2025-08-06",
+   "resolution": 1.337,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 64,
+   "length_modeled": 64,
+   "frac_modeled": 1.0,
+   "description": "Spectrin alpha chain, non-erythrocytic 1",
+   "cif": "data/validation/cif/9eyb.cif",
+   "yaml": "validation/yaml/9eyb.yaml",
+   "uniprot": [
+    "P07751"
+   ],
+   "size_bucket": "60-120",
+   "fold_note": "SH3 domain (all-beta), spectrin",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9n3a",
+   "pdb_id": "9N3A",
+   "chain": "A",
+   "release_date": "2026-09-09",
+   "resolution": 1.55,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 98,
+   "length_modeled": 93,
+   "frac_modeled": 0.949,
+   "description": "CRISPR-associated DinG",
+   "cif": "data/validation/cif/9n3a.cif",
+   "yaml": "validation/yaml/9n3a.yaml",
+   "uniprot": [
+    "A0AA82WPF0"
+   ],
+   "size_bucket": "60-120",
+   "fold_note": "CRISPR-associated helicase domain",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9b26",
+   "pdb_id": "9B26",
+   "chain": "A",
+   "release_date": "2024-12-04",
+   "resolution": 1.65,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 109,
+   "length_modeled": 109,
+   "frac_modeled": 1.0,
+   "description": "Parvalbumin beta",
+   "cif": "data/validation/cif/9b26.cif",
+   "yaml": "validation/yaml/9b26.yaml",
+   "uniprot": [
+    "Q90YK9"
+   ],
+   "size_bucket": "60-120",
+   "fold_note": "EF-hand calcium-binding (all-alpha)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9z0m",
+   "pdb_id": "9Z0M",
+   "chain": "A",
+   "release_date": "2025-11-19",
+   "resolution": 1.7,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 113,
+   "length_modeled": 109,
+   "frac_modeled": 0.965,
+   "description": "CMRF35-like molecule 6",
+   "cif": "data/validation/cif/9z0m.cif",
+   "yaml": "validation/yaml/9z0m.yaml",
+   "uniprot": [
+    "Q08708"
+   ],
+   "size_bucket": "60-120",
+   "fold_note": "Ig-like V domain",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "7ire",
+   "pdb_id": "7IRE",
+   "chain": "A",
+   "release_date": "2026-01-14",
+   "resolution": 1.21,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 116,
+   "length_modeled": 112,
+   "frac_modeled": 0.966,
+   "description": "Host translation inhibitor nsp1",
+   "cif": "data/validation/cif/7ire.cif",
+   "yaml": "validation/yaml/7ire.yaml",
+   "uniprot": [
+    "P0DTD1"
+   ],
+   "size_bucket": "60-120",
+   "fold_note": "viral nsp1 N-terminal domain (beta-barrel)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "8k9n",
+   "pdb_id": "8K9N",
+   "chain": "A",
+   "release_date": "2024-02-14",
+   "resolution": 0.86,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 126,
+   "length_modeled": 125,
+   "frac_modeled": 0.992,
+   "description": "Pseudoazurin",
+   "cif": "data/validation/cif/8k9n.cif",
+   "yaml": "validation/yaml/8k9n.yaml",
+   "uniprot": [
+    "P04377"
+   ],
+   "size_bucket": "120-200",
+   "fold_note": "cupredoxin (type-1 copper, beta-sandwich), 0.86 A",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "8chr",
+   "pdb_id": "8CHR",
+   "chain": "A",
+   "release_date": "2023-09-06",
+   "resolution": 1.1,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 128,
+   "length_modeled": 128,
+   "frac_modeled": 1.0,
+   "description": "Peptidyl-prolyl cis-trans isomerase FKBP5",
+   "cif": "data/validation/cif/8chr.cif",
+   "yaml": "validation/yaml/8chr.yaml",
+   "uniprot": [
+    "Q13451"
+   ],
+   "size_bucket": "120-200",
+   "fold_note": "FKBP peptidyl-prolyl isomerase domain",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "8rmt",
+   "pdb_id": "8RMT",
+   "chain": "A",
+   "release_date": "2025-01-29",
+   "resolution": 1.25,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 139,
+   "length_modeled": 138,
+   "frac_modeled": 0.993,
+   "description": "Galectin-3",
+   "cif": "data/validation/cif/8rmt.cif",
+   "yaml": "validation/yaml/8rmt.yaml",
+   "uniprot": [
+    "P17931"
+   ],
+   "size_bucket": "120-200",
+   "fold_note": "galectin carbohydrate-recognition domain (beta-sandwich)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9dti",
+   "pdb_id": "9DTI",
+   "chain": "A",
+   "release_date": "2025-10-15",
+   "resolution": 1.681,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 154,
+   "length_modeled": 154,
+   "frac_modeled": 1.0,
+   "description": "Myoglobin",
+   "cif": "data/validation/cif/9dti.cif",
+   "yaml": "validation/yaml/9dti.yaml",
+   "uniprot": [
+    "P02185"
+   ],
+   "size_bucket": "120-200",
+   "fold_note": "globin (all-alpha)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9f9u",
+   "pdb_id": "9F9U",
+   "chain": "A",
+   "release_date": "2024-10-02",
+   "resolution": 1.68,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 170,
+   "length_modeled": 170,
+   "frac_modeled": 1.0,
+   "description": "Transcription elongation factor NusA",
+   "cif": "data/validation/cif/9f9u.cif",
+   "yaml": "validation/yaml/9f9u.yaml",
+   "uniprot": [
+    "Q980V4"
+   ],
+   "size_bucket": "120-200",
+   "fold_note": "transcription elongation factor (alpha/beta, S1/KH)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9eqb",
+   "pdb_id": "9EQB",
+   "chain": "A",
+   "release_date": "2025-04-16",
+   "resolution": 1.36,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 174,
+   "length_modeled": 167,
+   "frac_modeled": 0.96,
+   "description": "Ferritin, mitochondrial",
+   "cif": "data/validation/cif/9eqb.cif",
+   "yaml": "validation/yaml/9eqb.yaml",
+   "uniprot": [
+    "Q8N4E7"
+   ],
+   "size_bucket": "120-200",
+   "fold_note": "ferritin 4-helix bundle",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "8x5s",
+   "pdb_id": "8X5S",
+   "chain": "A",
+   "release_date": "2024-11-20",
+   "resolution": 1.726,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 176,
+   "length_modeled": 168,
+   "frac_modeled": 0.955,
+   "description": "Shikimate kinase",
+   "cif": "data/validation/cif/8x5s.cif",
+   "yaml": "validation/yaml/8x5s.yaml",
+   "uniprot": [
+    "P9WPY3"
+   ],
+   "size_bucket": "120-200",
+   "fold_note": "P-loop NTPase (shikimate kinase)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9fcl",
+   "pdb_id": "9FCL",
+   "chain": "A",
+   "release_date": "2024-08-21",
+   "resolution": 1.75,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 215,
+   "length_modeled": 212,
+   "frac_modeled": 0.986,
+   "description": "SAM-dependent methyltransferase",
+   "cif": "data/validation/cif/9fcl.cif",
+   "yaml": "validation/yaml/9fcl.yaml",
+   "uniprot": [
+    "A0A1W6R556"
+   ],
+   "size_bucket": "200-300",
+   "fold_note": "SAM-dependent methyltransferase (Rossmann)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "7h67",
+   "pdb_id": "7H67",
+   "chain": "A",
+   "release_date": "2025-03-05",
+   "resolution": 1.35,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 226,
+   "length_modeled": 223,
+   "frac_modeled": 0.987,
+   "description": "Chymase",
+   "cif": "data/validation/cif/7h67.cif",
+   "yaml": "validation/yaml/7h67.yaml",
+   "uniprot": [
+    "P23946"
+   ],
+   "size_bucket": "200-300",
+   "fold_note": "trypsin-like serine protease (chymase)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9rfg",
+   "pdb_id": "9RFG",
+   "chain": "A",
+   "release_date": "2026-05-27",
+   "resolution": 1.15,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 241,
+   "length_modeled": 234,
+   "frac_modeled": 0.971,
+   "description": "Beta-lactamase VIM-1",
+   "cif": "data/validation/cif/9rfg.cif",
+   "yaml": "validation/yaml/9rfg.yaml",
+   "uniprot": [
+    "Q9XAY4"
+   ],
+   "size_bucket": "200-300",
+   "fold_note": "metallo-beta-lactamase (alpha-beta/beta-alpha)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9ths",
+   "pdb_id": "9THS",
+   "chain": "A",
+   "release_date": "2025-12-17",
+   "resolution": 1.54,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 249,
+   "length_modeled": 249,
+   "frac_modeled": 1.0,
+   "description": "Ascorbate peroxidase",
+   "cif": "data/validation/cif/9ths.cif",
+   "yaml": "validation/yaml/9ths.yaml",
+   "uniprot": [
+    "Q43758"
+   ],
+   "size_bucket": "200-300",
+   "fold_note": "heme peroxidase (mostly alpha)",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "9m24",
+   "pdb_id": "9M24",
+   "chain": "A",
+   "release_date": "2025-10-29",
+   "resolution": 1.57,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 293,
+   "length_modeled": 285,
+   "frac_modeled": 0.973,
+   "description": "Kelch-like ECH-associated protein 1",
+   "cif": "data/validation/cif/9m24.cif",
+   "yaml": "validation/yaml/9m24.yaml",
+   "uniprot": [
+    "Q14145"
+   ],
+   "size_bucket": "200-300",
+   "fold_note": "Kelch beta-propeller",
+   "source_pool": "pool.json"
+  },
+  {
+   "id": "8vcw",
+   "pdb_id": "8VCW",
+   "chain": "A",
+   "release_date": "2024-01-24",
+   "resolution": 1.35,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 327,
+   "length_modeled": 327,
+   "frac_modeled": 1.0,
+   "description": "Biotin synthase",
+   "cif": "data/validation/cif/8vcw.cif",
+   "yaml": "validation/yaml/8vcw.yaml",
+   "uniprot": [
+    "A5ZUL4"
+   ],
+   "size_bucket": "300-400",
+   "fold_note": "radical SAM TIM-barrel (biotin synthase)",
+   "source_pool": "pool_300_400.json"
+  },
+  {
+   "id": "9g8v",
+   "pdb_id": "9G8V",
+   "chain": "A",
+   "release_date": "2025-08-06",
+   "resolution": 1.637,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 356,
+   "length_modeled": 356,
+   "frac_modeled": 1.0,
+   "description": "Alkaline serine protease",
+   "cif": "data/validation/cif/9g8v.cif",
+   "yaml": "validation/yaml/9g8v.yaml",
+   "uniprot": [
+    "Q93IQ4"
+   ],
+   "size_bucket": "300-400",
+   "fold_note": "subtilisin-like serine protease",
+   "source_pool": "pool_300_400.json"
+  },
+  {
+   "id": "8jv3",
+   "pdb_id": "8JV3",
+   "chain": "A",
+   "release_date": "2024-07-03",
+   "resolution": 1.41,
+   "method": "X-RAY DIFFRACTION",
+   "length_seqres": 361,
+   "length_modeled": 360,
+   "frac_modeled": 0.997,
+   "description": "Spermidine/putrescine-binding periplasmic protein",
+   "cif": "data/validation/cif/8jv3.cif",
+   "yaml": "validation/yaml/8jv3.yaml",
+   "uniprot": [
+    "B6BQH5"
+   ],
+   "size_bucket": "300-400",
+   "fold_note": "two-domain periplasmic solute-binding protein",
+   "source_pool": "pool_300_400.json"
+  }
+ ]
+}

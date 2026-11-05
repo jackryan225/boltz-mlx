@@ -1,0 +1,100 @@
+[
+ {
+  "case": "nim_8eil_empty",
+  "msa_rows": 1,
+  "tokens_features": 194,
+  "tokens_tokenizer": 194,
+  "chains": [
+   [
+    "A",
+    "0",
+    186
+   ],
+   [
+    "B",
+    "3",
+    1
+   ]
+  ],
+  "n_atoms": 1388,
+  "expected_published": null,
+  "status": "n/a (no published count)",
+  "note": "NVIDIA table length 186 (one chain) + SIN heavy atoms (8) as tokens"
+ },
+ {
+  "case": "nim_7qsj_empty",
+  "msa_rows": 1,
+  "tokens_features": 399,
+  "tokens_tokenizer": 399,
+  "chains": [
+   [
+    "A",
+    "0",
+    373
+   ],
+   [
+    "B",
+    "3",
+    1
+   ]
+  ],
+  "n_atoms": 2928,
+  "expected_published": null,
+  "status": "n/a (no published count)",
+  "note": "NVIDIA table length 375; RCSB entity 373 (one chain) + celecoxib heavy atoms (26)"
+ },
+ {
+  "case": "nim_8cpk_empty",
+  "msa_rows": 1,
+  "tokens_features": 410,
+  "tokens_tokenizer": 410,
+  "chains": [
+   [
+    "A",
+    "0",
+    384
+   ],
+   [
+    "B",
+    "3",
+    1
+   ]
+  ],
+  "n_atoms": 2749,
+  "expected_published": null,
+  "status": "n/a (no published count)",
+  "note": "NVIDIA table length 384 (one chain) + celecoxib heavy atoms (26)"
+ },
+ {
+  "case": "nim_8gpp_empty",
+  "msa_rows": 1,
+  "tokens_features": 628,
+  "tokens_tokenizer": 628,
+  "chains": [
+   [
+    "A",
+    "0",
+    208
+   ],
+   [
+    "B",
+    "0",
+    208
+   ],
+   [
+    "C",
+    "0",
+    208
+   ],
+   [
+    "D",
+    "3",
+    1
+   ]
+  ],
+  "n_atoms": 4792,
+  "expected_published": null,
+  "status": "n/a (no published count)",
+  "note": "NVIDIA table length 628; RCSB entity 208 x 3 chains (trimer) = 624 residues + BCT heavy atoms (4)"
+ }
+]

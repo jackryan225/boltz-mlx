@@ -1,0 +1,9 @@
+# upstream examples/cyclic_prot.yaml with msa: empty
+version: 1  # Optional, defaults to 1
+sequences:
+  - protein:
+      id: A
+      sequence: QLEDSEVEAVAKG
+      msa: empty
+      cyclic: true
+
